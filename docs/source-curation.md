@@ -14,13 +14,30 @@ This skeleton draws from multiple agent and skill repositories, but it intention
 ## Current Source Decisions
 
 - Codex official docs define the local shape: `AGENTS.md`, `.codex/config.toml`, `.codex/agents/*.toml`, and `.agents/skills/*/SKILL.md`.
-- Paseo informs the orchestration playbook: advisor, committee, handoff, and loop.
-- awesome-codex-subagents informs the five role choices, but the repo does not import the full catalog.
-- Superpowers informs planning, TDD, systematic debugging, and verification discipline.
-- ECC informs repo-local skills, security posture, and the preference for minimal/manual profiles over layered installs.
-- last30days informs the recent-research workflow, but its engine and scripts are not vendored.
-- taste-skill informs frontend quality guidance, but only a compact general-purpose skill is included.
-- pm-skills and agency-agents inform product and specialist-agent vocabulary, but the essential profile excludes broad product, sales, marketing, and agency catalogs.
+- Paseo informs the orchestration playbook: advisor, committee, handoff, loop, workspaces, and repo-local skills. Research snapshot: `getpaseo/paseo` commit `62d9e656d749`.
+- awesome-codex-subagents informs the Codex TOML agent format and broad specialist coverage. Research snapshot: `VoltAgent/awesome-codex-subagents` commit `797d73698aa3`.
+- awesome-agent-skills informs the skill-catalog mindset and trigger-first packaging. Research snapshot: `VoltAgent/awesome-agent-skills` commit `0e6e58985eb7`.
+- Superpowers informs brainstorming, plans, TDD, systematic debugging, code review, branch finish, subagent use, worktrees, and verification discipline. Research snapshot: `obra/superpowers` commit `6fd450765978`.
+- ECC informs repo-local skills, prompt-defense posture, selective install philosophy, review agents, and avoiding layered global installs. Research snapshot: `affaan-m/ECC` commit `5b173d2e6c11`.
+- agency-agents informs the expanded specialist vocabulary, minimal-change discipline, product/design/security/testing lanes, and evidence-based QA posture. Research snapshot: `msitarzewski/agency-agents` commit `a077c9ac0be3`.
+- last30days informs the recent-research workflow and current-community-signal posture, but its engine, scripts, provider config, and cache checks are not vendored. Research snapshot: `mvanhorn/last30days-skill` commit `122158415ae4`.
+- pm-skills informs PRD writing, feature-request triage, release notes, product discovery, strategy, and PM execution workflows. Research snapshot: `phuryn/pm-skills` commit `d384f0c9eb81`.
+- taste-skill informs frontend quality guidance. The repo includes a compact general-purpose `frontend-taste` skill and a focused `design-taste-frontend` adaptation for landing pages, portfolios, and redesigns, sourced from `Leonxlnx/taste-skill` at commit `5436c5952cc88d18a034d496988680a8c28a836a` under MIT license.
+
+## Imported Capabilities
+
+The repo now carries a curated middleweight profile:
+
+- 22 Codex subagents in `.codex/agents/`.
+- 25 repo-local skills in `.agents/skills/`.
+- An activation matrix in `docs/agent-catalog.md`.
+- No upstream scripts, generated installers, global config, provider credentials, package manager dependencies, or telemetry.
+
+## License Notes
+
+The sampled source repositories are MIT-licensed except Paseo, which has its own copyright license text. This repo adapts workflows and role boundaries rather than vendoring Paseo code.
+
+When copying upstream text verbatim in the future, include the upstream license and commit in the copied file or in this document. Prefer concise repo-local adaptations unless exact upstream wording is required.
 
 ## When to Add More
 

@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <strong>Uno scheletro repo-local, minimale e curato per progetti gestiti da agenti.</strong>
+  <strong>Uno scheletro repo-local, curato e copiabile per progetti gestiti da agenti.</strong>
   <br />
   Codex per esecuzione e skill. Paseo per orchestrazione. Zero rumore inutile.
 </p>
@@ -34,13 +34,14 @@
 
 **unaSquadraFortissimi** is a starter skeleton for future projects where AI agents are first-class collaborators.
 
-The point is not to install every agent, skill, hook, command, and research pipeline on the internet. The point is to preserve the **minimum useful operating system**:
+The point is not to install every hook, command, provider, and research pipeline on the internet. The point is to preserve a **useful repo-local operating system**:
 
 - clear project instructions
-- a few focused Codex subagents
-- compact repo-local skills
+- a strong but bounded Codex subagent roster
+- compact repo-local skills with clear triggers
 - lightweight Paseo workflow guidance
-- explicit rules against duplication and tool sprawl
+- explicit source curation and attribution
+- rules against duplicate roles, global config, and tool sprawl
 
 ## Stack
 
@@ -57,10 +58,11 @@ The point is not to install every agent, skill, hook, command, and research pipe
 | Path | Purpose |
 | --- | --- |
 | `AGENTS.md` | Main operating contract for agents working in this repository |
-| `.codex/config.toml` | Minimal project-local Codex subagent limits |
-| `.codex/agents/` | Five focused Codex subagents |
-| `.agents/skills/` | Eight compact repo-local skills |
+| `.codex/config.toml` | Project-local Codex subagent limits |
+| `.codex/agents/` | 22 Codex subagents across implementation, review, product, ops, QA, and evals |
+| `.agents/skills/` | 25 compact repo-local skills |
 | `docs/agent-workflows.md` | Practical Paseo playbook |
+| `docs/agent-catalog.md` | Agent and skill activation matrix |
 | `docs/source-curation.md` | Rules for importing ideas without copying entire catalogs |
 | `assets/agent-fellowship-medieval.png` | Generated medieval fellowship hero image |
 
@@ -73,26 +75,61 @@ The point is not to install every agent, skill, hook, command, and research pipe
 |-- assets/
 |   `-- agent-fellowship-medieval.png
 |-- docs/
+|   |-- agent-catalog.md
 |   |-- agent-workflows.md
 |   `-- source-curation.md
 |-- .codex/
 |   |-- config.toml
 |   `-- agents/
+|       |-- accessibility_tester.toml
+|       |-- architect.toml
+|       |-- backend_developer.toml
 |       |-- context_manager.toml
+|       |-- database_reviewer.toml
 |       |-- debugger.toml
+|       |-- dependency_reviewer.toml
+|       |-- devops_engineer.toml
 |       |-- docs_researcher.toml
+|       |-- eval_engineer.toml
+|       |-- evidence_collector.toml
+|       |-- frontend_developer.toml
+|       |-- minimal_change_engineer.toml
+|       |-- performance_optimizer.toml
+|       |-- product_manager.toml
+|       |-- react_reviewer.toml
 |       |-- reviewer.toml
-|       `-- security_auditor.toml
+|       |-- security_auditor.toml
+|       |-- technical_writer.toml
+|       |-- test_automator.toml
+|       |-- typescript_reviewer.toml
+|       `-- ux_researcher.toml
 `-- .agents/
     `-- skills/
+        |-- accessibility-audit/
+        |-- brainstorming/
+        |-- branch-finish/
+        |-- code-review/
+        |-- dependency-review/
+        |-- design-taste-frontend/
+        |-- eval-design/
+        |-- evidence-qa/
+        |-- feature-request-triage/
         |-- frontend-taste/
+        |-- incident-response/
+        |-- performance-audit/
         |-- planning-contract/
+        |-- prd-writing/
         |-- recent-research/
+        |-- release-notes/
         |-- repo-discovery/
         |-- security-review/
+        |-- subagent-driven-development/
         |-- systematic-debugging/
+        |-- technical-writing/
         |-- tdd-workflow/
-        `-- verification-loop/
+        |-- using-git-worktrees/
+        |-- verification-loop/
+        `-- writing-plans/
 ```
 
 ## Start a New Project
@@ -100,22 +137,22 @@ The point is not to install every agent, skill, hook, command, and research pipe
 1. **Copy this skeleton** into a fresh repository.
 2. **Replace this README** with project-specific product, setup, and run instructions.
 3. **Update `AGENTS.md`** with real build, test, lint, deploy, and safety rules.
-4. **Keep the agent set small** until repeated work proves a new role is worth it.
+4. **Prune the roster** if a project does not need all specialists.
 5. **Use Paseo deliberately** when a second opinion, committee, handoff, or loop reduces risk.
 
 ## Codex Agents
 
 Project-local Codex agents live in `.codex/agents/`.
 
-| Agent | Role | When to Use |
-| --- | --- | --- |
-| `context_manager` | Scout and cartographer | Build compact repo context before implementation or delegation |
-| `docs_researcher` | Scholar | Verify APIs, versions, release notes, and official docs |
-| `reviewer` | Shield-bearer | Review diffs for correctness, regressions, security, and missing tests |
-| `security_auditor` | Paladin | Inspect auth, secrets, inputs, config, dependencies, and exposure |
-| `debugger` | Ranger | Isolate failing tests, runtime traces, and root causes |
+| Lane | Agents |
+| --- | --- |
+| Context and design | `context_manager`, `architect`, `minimal_change_engineer` |
+| Implementation | `backend_developer`, `frontend_developer`, `devops_engineer`, `technical_writer` |
+| Review | `reviewer`, `typescript_reviewer`, `react_reviewer`, `security_auditor`, `database_reviewer`, `dependency_reviewer`, `accessibility_tester` |
+| Verification | `test_automator`, `evidence_collector`, `debugger`, `performance_optimizer` |
+| Product and research | `docs_researcher`, `product_manager`, `ux_researcher`, `eval_engineer` |
 
-These agents are **project-local** and **explicitly invoked**. They are not meant to replace careful repo reading.
+These agents are **project-local** and **explicitly invoked**. They are not meant to replace careful repo reading. See `docs/agent-catalog.md` for activation guidance.
 
 ## Local Skills
 
@@ -124,13 +161,30 @@ Repo-local skills live in `.agents/skills/`.
 | Skill | Use |
 | --- | --- |
 | `repo-discovery` | First pass through an unfamiliar repo |
+| `brainstorming` | Clarify substantial product, UX, creative, or architecture work |
 | `planning-contract` | Decision-complete plans for risky or multi-step work |
+| `writing-plans` | Implementation plans with sequencing, affected files, and verification |
+| `subagent-driven-development` | Delegate independent workstreams to bounded specialist agents |
+| `using-git-worktrees` | Isolate branch work when the workspace is dirty or parallel |
 | `verification-loop` | Final checks before declaring work complete |
+| `branch-finish` | End-of-branch diff review, verification, and handoff discipline |
 | `tdd-workflow` | Behavior changes protected by tests |
 | `systematic-debugging` | Bugs, failing tests, flakes, and regressions |
+| `code-review` | PR-style diff review |
 | `security-review` | Trust boundaries, secrets, input handling, and unsafe defaults |
+| `dependency-review` | Package, plugin, license, and supply-chain changes |
+| `performance-audit` | Latency, Core Web Vitals, memory, bundle, or query bottlenecks |
+| `accessibility-audit` | Keyboard, semantics, focus, labels, and WCAG-oriented checks |
+| `evidence-qa` | Screenshot, command, log, and reproduction proof |
 | `frontend-taste` | Polished UI, hierarchy, spacing, responsive behavior |
+| `design-taste-frontend` | Stronger taste-skill workflow for landing pages, portfolios, and redesigns |
 | `recent-research` | Time-sensitive external facts and current community signals |
+| `prd-writing` | Product requirements and acceptance criteria |
+| `feature-request-triage` | Backlog and customer-request prioritization |
+| `release-notes` | User-facing and stakeholder-facing release summaries |
+| `technical-writing` | README, runbook, API, troubleshooting, and migration docs |
+| `eval-design` | Evaluation scenarios, rubrics, and gates for AI workflows |
+| `incident-response` | Production incident stabilization, evidence, and recovery |
 
 ## Paseo Workflows
 
@@ -157,21 +211,21 @@ This skeleton is inspired by:
 - pm-skills
 - agency-agents
 
-The rule is simple: **import principles, not catalogs**.
+The rule is simple: **copy the best operating patterns, not the entire catalogs**.
 
-If a source contains 200 useful ideas, this repo should still keep only the few that are stable, repeated, and generally useful.
+If a source contains 200 useful ideas, this repo should still keep only the roles and workflows that are stable, repeated, and generally useful across future projects.
 
 ## Non-Goals
 
 - No global Codex configuration
 - No tokens, credentials, provider settings, or personal paths
-- No large imported skill catalog
+- No uncurated imported skill catalog
 - No vendored research engines
 - No framework choice before a real project needs one
 - No agents that differ only by branding or personality
 
 ## Italiano
 
-Questo scheletro e volutamente piccolo ma presentabile: istruzioni operative, pochi agenti Codex, skill essenziali, playbook Paseo e una linea estetica chiara.
+Questo scheletro e curato ma ancora copiabile: istruzioni operative, un roster Codex solido, skill essenziali, playbook Paseo e una linea estetica chiara.
 
-La squadra deve rimanere forte perche resta leggera.
+La squadra deve rimanere forte perche resta ordinata.
