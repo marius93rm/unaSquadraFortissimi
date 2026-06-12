@@ -201,15 +201,21 @@ See `docs/agent-workflows.md` for the full playbook.
 
 This skeleton is inspired by:
 
-- Codex official docs
-- Paseo
-- awesome-codex-subagents
-- Superpowers
-- ECC
-- last30days
-- taste-skill
-- pm-skills
-- agency-agents
+> **Repo da cui copiare**
+>
+> Dati stelle letti da GitHub API il 2026-06-12.
+>
+> | Repo | Descrizione | Stelle | Link |
+> | --- | --- | ---: | --- |
+> | `paseo` | Orchestrazione multi-agent da desktop e mobile. | 8,389 | [getpaseo/paseo](https://github.com/getpaseo/paseo) |
+> | `awesome-codex-subagents` | Catalogo di subagenti Codex specializzati per molti casi di sviluppo. | 5,139 | [VoltAgent/awesome-codex-subagents](https://github.com/VoltAgent/awesome-codex-subagents) |
+> | `awesome-agent-skills` | Raccolta ampia di skill agentiche compatibili con Codex, Claude Code, Gemini CLI, Cursor e altri. | 25,071 | [VoltAgent/awesome-agent-skills](https://github.com/VoltAgent/awesome-agent-skills) |
+> | `ECC` | Sistema di ottimizzazione per harness agentici: skill, memoria, sicurezza e sviluppo research-first. | 213,763 | [affaan-m/ECC](https://github.com/affaan-m/ECC) |
+> | `superpowers` | Framework e metodologia di sviluppo basati su skill agentiche. | 225,270 | [obra/superpowers](https://github.com/obra/superpowers) |
+> | `agency-agents` | Catalogo di agenti specialistici per engineering, prodotto, marketing, supporto, sicurezza e altri domini. | 111,853 | [msitarzewski/agency-agents](https://github.com/msitarzewski/agency-agents) |
+> | `last30days-skill` | Skill per ricerca recente su Reddit, X, YouTube, HN, Polymarket, GitHub e web. | 39,946 | [mvanhorn/last30days-skill](https://github.com/mvanhorn/last30days-skill) |
+> | `pm-skills` | Skill e comandi per product management: discovery, strategia, execution, launch e growth. | 16,504 | [phuryn/pm-skills](https://github.com/phuryn/pm-skills) |
+> | `taste-skill` | Skill per migliorare gusto visivo e ridurre output frontend generico. | 41,822 | [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) |
 
 The rule is simple: **copy the best operating patterns, not the entire catalogs**.
 
