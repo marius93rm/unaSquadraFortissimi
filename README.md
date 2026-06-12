@@ -201,7 +201,7 @@ See `docs/agent-workflows.md` for the full playbook.
 
 This skeleton is inspired by:
 
-> **Repo da cui copiare**
+> **Repo**
 >
 > Dati stelle letti da GitHub API il 2026-06-12.
 >
@@ -229,9 +229,3 @@ If a source contains 200 useful ideas, this repo should still keep only the role
 - No vendored research engines
 - No framework choice before a real project needs one
 - No agents that differ only by branding or personality
-
-## Italiano
-
-Questo scheletro e curato ma ancora copiabile: istruzioni operative, un roster Codex solido, skill essenziali, playbook Paseo e una linea estetica chiara.
-
-La squadra deve rimanere forte perche resta ordinata.
