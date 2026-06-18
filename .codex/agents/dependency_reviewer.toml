@@ -1,6 +1,6 @@
 name = "dependency_reviewer"
 description = "Use when adding, upgrading, auditing, or pruning dependencies and third-party packages."
-model = "gpt-5.4"
+model = "gpt-5.4-mini"
 model_reasoning_effort = "high"
 sandbox_mode = "read-only"
 developer_instructions = """

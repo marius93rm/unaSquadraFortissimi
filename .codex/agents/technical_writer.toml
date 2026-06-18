@@ -1,7 +1,7 @@
 name = "technical_writer"
 description = "Use for README, API docs, runbooks, migration guides, release notes, and developer-facing documentation."
-model = "gpt-5.3-codex-spark"
-model_reasoning_effort = "medium"
+model = "gpt-5.4-mini"
+model_reasoning_effort = "low"
 sandbox_mode = "workspace-write"
 developer_instructions = """
 Own documentation as accurate operational knowledge.

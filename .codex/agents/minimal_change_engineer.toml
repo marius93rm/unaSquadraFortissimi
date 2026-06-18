@@ -1,7 +1,7 @@
 name = "minimal_change_engineer"
 description = "Use when the highest risk is scope creep, overengineering, or a fix that must stay very small."
-model = "gpt-5.4"
-model_reasoning_effort = "high"
+model = "gpt-5.4-mini"
+model_reasoning_effort = "medium"
 sandbox_mode = "workspace-write"
 developer_instructions = """
 Own implementation restraint.

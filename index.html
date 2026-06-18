@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="unaSquadraFortissimi presenta agenti Codex, skill repo-local e workflow Paseo con fonti reali dalla repository."
+    />
+    <title>unaSquadraFortissimi | Ordine repo-local di agenti e skill</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Salta al contenuto</a>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Torna all'inizio">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48">
+            <path d="M24 4 41 11v13c0 10-6.8 16.8-17 20C13.8 40.8 7 34 7 24V11L24 4Z" />
+            <path d="m19 17-6 7 6 7M29 17l6 7-6 7M26 15l-4 18" />
+          </svg>
+        </span>
+        <span>unaSquadraFortissimi</span>
+      </a>
+      <a class="icon-link" href="https://github.com/marius93rm/unaSquadraFortissimi" aria-label="Apri il repository GitHub">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M12 .8a11.2 11.2 0 0 0-3.5 21.8c.6.1.8-.2.8-.6v-2.1c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.2-1.6-1.2-1.6-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 .1.8 2 3.3 1.5.1-.7.4-1.2.7-1.5-2.6-.3-5.3-1.3-5.3-5.6 0-1.2.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.5.2 2.7.1 3 .8.8 1.2 1.9 1.2 3.1 0 4.3-2.7 5.3-5.3 5.6.4.4.8 1.1.8 2.2V22c0 .4.2.7.8.6A11.2 11.2 0 0 0 12 .8Z"
+          />
+        </svg>
+      </a>
+      <nav class="nav-links" aria-label="Sezioni del sito">
+        <a href="#metodo">Metodo</a>
+        <a href="#modelli">Modelli</a>
+        <a href="#agenti">Agenti</a>
+        <a href="#skill">Skill</a>
+        <a href="#paseo">Paseo</a>
+        <a href="#fonti">Fonti</a>
+      </nav>
+    </header>
+
+    <main id="main" tabindex="-1">
+      <section class="hero" id="top">
+        <div class="hero-copy">
+          <p class="kicker">Ordine repo-local per Codex e Paseo</p>
+          <h1><span>unaSquadra</span><span>Fortissimi</span></h1>
+          <p class="hero-lede">
+            Uno scheletro curato e copiabile per progetti gestiti da agenti: 22 specialisti Codex,
+            25 skill repo-local e routing aggiornato tra modelli forti, ruoli leggeri e verifica.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#agenti">Esplora gli agenti</a>
+            <a class="button secondary" href="#skill">Vedi le skill</a>
+          </div>
+        </div>
+        <figure class="hero-art">
+          <img
+            src="assets/agent-fellowship-medieval.png"
+            alt="Compagnia medievale di agenti riunita intorno a un tavolo di pianificazione"
+          />
+        </figure>
+      </section>
+
+      <section class="section method" id="metodo">
+        <div class="section-heading">
+          <p class="kicker">Metodo verificato dalla repo</p>
+          <h2>Prima contesto, poi delega, infine prove.</h2>
+          <p>
+            Le sezioni seguenti sono derivate da <code>AGENTS.md</code>, <code>docs/agent-catalog.md</code>,
+            <code>docs/agent-workflows.md</code>, <code>.codex/agents/*.toml</code> e
+            <code>.agents/skills/*/SKILL.md</code>.
+          </p>
+        </div>
+        <div class="stats-grid">
+          <article>
+            <strong>22</strong>
+            <span>agenti Codex locali</span>
+          </article>
+          <article>
+            <strong>25</strong>
+            <span>skill repo-local</span>
+          </article>
+          <article>
+            <strong>5</strong>
+            <span>corsie agente</span>
+          </article>
+          <article>
+            <strong>8</strong>
+            <span>gruppi skill</span>
+          </article>
+        </div>
+        <div class="model-update" id="modelli" aria-labelledby="model-routing-title">
+          <div>
+            <p class="kicker">Aggiornamento modelli</p>
+            <h3 id="model-routing-title">Routing più netto tra potenza, costo e velocità.</h3>
+            <p>
+              I TOML locali assegnano <code>gpt-5.5</code> a 13 agenti di implementazione, review,
+              analisi, prodotto e architettura. Altri 9 agenti usano <code>gpt-5.4-mini</code> per
+              contesto, documentazione, evidenza, accessibilità, dipendenze, test mirati e ricerca UX.
+            </p>
+          </div>
+          <div class="model-grid" aria-label="Riepilogo routing agenti dai TOML">
+            <article>
+              <span>Model</span>
+              <h4>13 / 9</h4>
+              <p><code>gpt-5.5</code> per i ruoli più pesanti, <code>gpt-5.4-mini</code> per quelli più leggeri.</p>
+            </article>
+            <article>
+              <span>Reasoning</span>
+              <h4>6 / 12 / 4</h4>
+              <p>High, medium e low restano graduati per rischio e profondità richiesta.</p>
+            </article>
+            <article>
+              <span>Sandbox</span>
+              <h4>16 / 6</h4>
+              <p>La maggioranza è read-only; solo build, docs, test e fix stretti scrivono nel workspace.</p>
+            </article>
+          </div>
+        </div>
+        <ol class="method-steps">
+          <li><span>01</span><b>Leggi</b> AGENTS, README, docs e superficie interessata.</li>
+          <li><span>02</span><b>Restringi</b> la modifica al minimo coerente con la richiesta.</li>
+          <li><span>03</span><b>Delega</b> solo quando uno specialista riduce rischio o rumore.</li>
+          <li><span>04</span><b>Verifica</b> con comandi, screenshot, log o controlli dichiarati.</li>
+        </ol>
+      </section>
+
+      <section class="section" id="agenti">
+        <div class="section-heading">
+          <p class="kicker">Roster Codex</p>
+          <h2>Gli agenti della squadra</h2>
+          <p>
+            Ogni scheda usa dati reali dai TOML locali: trigger, modello, reasoning, sandbox e focus operativo.
+          </p>
+        </div>
+
+        <section class="lane">
+          <h3>Contesto e design</h3>
+          <div class="agent-grid">
+            <article class="agent-card tier-mini">
+              <img src="assets/agents/context_manager.png" alt="Avatar medievale del context_manager" />
+              <div class="card-content">
+                <div class="card-meta"><span>Context</span><span>read-only</span></div>
+                <h4>context_manager</h4>
+                <p>Quando serve un pacchetto compatto di contesto prima di implementazione, review o delega.</p>
+                <dl><div><dt>Model</dt><dd>gpt-5.4-mini</dd></div><div><dt>Reasoning</dt><dd>low</dd></div></dl>
+                <ul><li>Entry point e confini rilevanti</li><li>Regole da AGENTS, docs e config</li><li>Fatti, assunzioni e incognite separati</li></ul>
+                <a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/context_manager.toml">Config TOML</a>
+              </div>
+            </article>
+            <article class="agent-card tier-frontier">
+              <img src="assets/agents/architect.png" alt="Avatar medievale dell'architect" />
+              <div class="card-content">
+                <div class="card-meta"><span>Design</span><span>read-only</span></div>
+                <h4>architect</h4>
+                <p>Quando contano confini architetturali, flusso dati, migrazioni o decisioni cross-module.</p>
+                <dl><div><dt>Model</dt><dd>gpt-5.5</dd></div><div><dt>Reasoning</dt><dd>high</dd></div></dl>
+                <ul><li>Boundary tra UI, API, dominio e dati</li><li>Compatibilità, rollback e osservabilità</li><li>Sequenza implementativa minima</li></ul>
+                <a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/architect.toml">Config TOML</a>
+              </div>
+            </article>
+            <article class="agent-card tier-mini">
+              <img src="assets/agents/minimal_change_engineer.png" alt="Avatar medievale del minimal_change_engineer" />
+              <div class="card-content">
+                <div class="card-meta"><span>Restraint</span><span>workspace-write</span></div>
+                <h4>minimal_change_engineer</h4>
+                <p>Quando il rischio principale è scope creep, overengineering o una fix che deve restare piccola.</p>
+                <dl><div><dt>Model</dt><dd>gpt-5.4-mini</dd></div><div><dt>Reasoning</dt><dd>medium</dd></div></dl>
+                <ul><li>Restituisce l'interpretazione letterale</li><li>Cambia solo i file necessari</li><li>Lascia follow-up fuori dal diff</li></ul>
+                <a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/minimal_change_engineer.toml">Config TOML</a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="lane">
+          <h3>Implementazione</h3>
+          <div class="agent-grid">
+            <article class="agent-card tier-frontier">
+              <img src="assets/agents/backend_developer.png" alt="Avatar medievale del backend_developer" />
+              <div class="card-content">
+                <div class="card-meta"><span>Build</span><span>workspace-write</span></div>
+                <h4>backend_developer</h4>
+                <p>Per API, servizi, worker, auth o persistenza dopo che il path proprietario è chiaro.</p>
+                <dl><div><dt>Model</dt><dd>gpt-5.5</dd></div><div><dt>Reasoning</dt><dd>medium</dd></div></dl>
+                <ul><li>Validazione input e contratti output</li><li>Transazioni, idempotenza, retry e timeout</li><li>Authn/authz nei path toccati</li></ul>
+                <a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/backend_developer.toml">Config TOML</a>
+              </div>
+            </article>
+            <article class="agent-card tier-frontier">
+              <img src="assets/agents/frontend_developer.png" alt="Avatar medievale del frontend_developer" />
+              <div class="card-content">
+                <div class="card-meta"><span>Build</span><span>workspace-write</span></div>
+                <h4>frontend_developer</h4>
+                <p>Per UI, state, route, componenti e user flow con comportamento visibile.</p>
+                <dl><div><dt>Model</dt><dd>gpt-5.5</dd></div><div><dt>Reasoning</dt><dd>medium</dd></div></dl>
+                <ul><li>Transizioni di stato esplicite</li><li>Loading, empty, error e success state</li><li>Keyboard/focus e responsive risk</li></ul>
+                <a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/frontend_developer.toml">Config TOML</a>
+              </div>
+            </article>
+            <article class="agent-card tier-frontier">
+              <img src="assets/agents/devops_engineer.png" alt="Avatar medievale del devops_engineer" />
+              <div class="card-content">
+                <div class="card-meta"><span>Ops</span><span>workspace-write</span></div>
+                <h4>devops_engineer</h4>
+                <p>Per CI, release, deployment, configurazione ambiente e affidabilità operativa.</p>
+                <dl><div><dt>Model</dt><dd>gpt-5.5</dd></div><div><dt>Reasoning</dt><dd>medium</dd></div></dl>
+                <ul><li>Build deterministiche e artefatti</li><li>Diagnostica CI, cache e flaky step</li><li>Gestione segreti e drift ambiente</li></ul>
+                <a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/devops_engineer.toml">Config TOML</a>
+              </div>
+            </article>
+            <article class="agent-card tier-mini">
+              <img src="assets/agents/technical_writer.png" alt="Avatar medievale del technical_writer" />
+              <div class="card-content">
+                <div class="card-meta"><span>Docs</span><span>workspace-write</span></div>
+                <h4>technical_writer</h4>
+                <p>Per README, API docs, runbook, migration guide, release notes e documentazione developer.</p>
+                <dl><div><dt>Model</dt><dd>gpt-5.4-mini</dd></div><div><dt>Reasoning</dt><dd>low</dd></div></dl>
+                <ul><li>Comandi setup/run/test/deploy verificati</li><li>Contratti API ed esempi</li><li>Gotcha e troubleshooting</li></ul>
+                <a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/technical_writer.toml">Config TOML</a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="lane">
+          <h3>Review e rischio</h3>
+          <div class="agent-grid">
+            <article class="agent-card tier-frontier"><img src="assets/agents/reviewer.png" alt="Avatar medievale del reviewer" /><div class="card-content"><div class="card-meta"><span>Review</span><span>read-only</span></div><h4>reviewer</h4><p>Review PR-style per correttezza, regressioni, sicurezza e test mancanti.</p><dl><div><dt>Model</dt><dd>gpt-5.5</dd></div><div><dt>Reasoning</dt><dd>medium</dd></div></dl><ul><li>Findings ordinati per severità</li><li>Evidenza da file, linee, comandi o comportamento</li><li>Fix minima raccomandata</li></ul><a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/reviewer.toml">Config TOML</a></div></article>
+            <article class="agent-card tier-frontier"><img src="assets/agents/typescript_reviewer.png" alt="Avatar medievale del typescript_reviewer" /><div class="card-content"><div class="card-meta"><span>Review</span><span>read-only</span></div><h4>typescript_reviewer</h4><p>Review TS/JS per type safety, async behavior e runtime correctness.</p><dl><div><dt>Model</dt><dd>gpt-5.5</dd></div><div><dt>Reasoning</dt><dd>medium</dd></div></dl><ul><li>Cast insicuri, any e nullability</li><li>Promise non gestite, race e cancellazione</li><li>Boundary modulo, env e runtime</li></ul><a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/typescript_reviewer.toml">Config TOML</a></div></article>
+            <article class="agent-card tier-frontier"><img src="assets/agents/react_reviewer.png" alt="Avatar medievale del react_reviewer" /><div class="card-content"><div class="card-meta"><span>Review</span><span>read-only</span></div><h4>react_reviewer</h4><p>Review React, JSX, TSX, hook, rendering, accessibilità e boundary server/client.</p><dl><div><dt>Model</dt><dd>gpt-5.5</dd></div><div><dt>Reasoning</dt><dd>medium</dd></div></dl><ul><li>Hook condizionali e dependency errate</li><li>State mutation e chiavi instabili</li><li>Next.js server/client leaks</li></ul><a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/react_reviewer.toml">Config TOML</a></div></article>
+            <article class="agent-card tier-frontier"><img src="assets/agents/security_auditor.png" alt="Avatar medievale del security_auditor" /><div class="card-content"><div class="card-meta"><span>Review</span><span>read-only</span></div><h4>security_auditor</h4><p>Audit di auth, segreti, input validation, dipendenze e configurazioni infrastrutturali.</p><dl><div><dt>Model</dt><dd>gpt-5.5</dd></div><div><dt>Reasoning</dt><dd>high</dd></div></dl><ul><li>Boundary authn/authz</li><li>Injection resistance e secret handling</li><li>Default insicuri e supply-chain</li></ul><a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/security_auditor.toml">Config TOML</a></div></article>
+            <article class="agent-card tier-frontier"><img src="assets/agents/database_reviewer.png" alt="Avatar medievale del database_reviewer" /><div class="card-content"><div class="card-meta"><span>Review</span><span>read-only</span></div><h4>database_reviewer</h4><p>Review di schema, SQL, migrazioni, indici, RLS, locking e performance database.</p><dl><div><dt>Model</dt><dd>gpt-5.5</dd></div><div><dt>Reasoning</dt><dd>high</dd></div></dl><ul><li>Vincoli, cardinalità e integrità</li><li>Query plan, N+1 e indici</li><li>Lock, isolation e backfill safety</li></ul><a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/database_reviewer.toml">Config TOML</a></div></article>
+            <article class="agent-card tier-mini"><img src="assets/agents/dependency_reviewer.png" alt="Avatar medievale del dependency_reviewer" /><div class="card-content"><div class="card-meta"><span>Review</span><span>read-only</span></div><h4>dependency_reviewer</h4><p>Review di pacchetti, plugin, licenze, lockfile e rischio supply-chain.</p><dl><div><dt>Model</dt><dd>gpt-5.4-mini</dd></div><div><dt>Reasoning</dt><dd>high</dd></div></dl><ul><li>Advisory e versioni vulnerabili</li><li>Lockfile riproducibili</li><li>License, bundle size e manutenzione</li></ul><a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/dependency_reviewer.toml">Config TOML</a></div></article>
+            <article class="agent-card tier-mini"><img src="assets/agents/accessibility_tester.png" alt="Avatar medievale dell'accessibility_tester" /><div class="card-content"><div class="card-meta"><span>Review</span><span>read-only</span></div><h4>accessibility_tester</h4><p>Review WCAG-oriented per UI web, keyboard, semantica, label, focus e contrasto.</p><dl><div><dt>Model</dt><dd>gpt-5.4-mini</dd></div><div><dt>Reasoning</dt><dd>high</dd></div></dl><ul><li>Native semantics prima di ARIA</li><li>Focus visibility e heading structure</li><li>Alt text e status announcements</li></ul><a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/accessibility_tester.toml">Config TOML</a></div></article>
+          </div>
+        </section>
+
+        <section class="lane">
+          <h3>Verifica e diagnosi</h3>
+          <div class="agent-grid">
+            <article class="agent-card tier-mini"><img src="assets/agents/test_automator.png" alt="Avatar medievale del test_automator" /><div class="card-content"><div class="card-meta"><span>Verification</span><span>workspace-write</span></div><h4>test_automator</h4><p>Aggiunge test mirati per behavior, regressioni e workflow critici.</p><dl><div><dt>Model</dt><dd>gpt-5.4-mini</dd></div><div><dt>Reasoning</dt><dd>medium</dd></div></dl><ul><li>Un test piccolo che fallirebbe senza la fix</li><li>Fixture deterministiche</li><li>Success path più edge significativo</li></ul><a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/test_automator.toml">Config TOML</a></div></article>
+            <article class="agent-card tier-mini"><img src="assets/agents/evidence_collector.png" alt="Avatar medievale dell'evidence_collector" /><div class="card-content"><div class="card-meta"><span>Verification</span><span>read-only</span></div><h4>evidence_collector</h4><p>Raccoglie prove: screenshot, log, comandi, riproduzioni e mismatch osservati.</p><dl><div><dt>Model</dt><dd>gpt-5.4-mini</dd></div><div><dt>Reasoning</dt><dd>low</dd></div></dl><ul><li>Screenshot per claim UI</li><li>Output comandi per build/test/runtime</li><li>Gap di verifica espliciti</li></ul><a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/evidence_collector.toml">Config TOML</a></div></article>
+            <article class="agent-card tier-frontier"><img src="assets/agents/debugger.png" alt="Avatar medievale del debugger" /><div class="card-content"><div class="card-meta"><span>Analysis</span><span>read-only</span></div><h4>debugger</h4><p>Isola bug da sintomi, stack trace, runtime behavior, test falliti o flakiness.</p><dl><div><dt>Model</dt><dd>gpt-5.5</dd></div><div><dt>Reasoning</dt><dd>high</dd></div></dl><ul><li>Trigger-to-symptom mapping</li><li>Differenze ambiente/config</li><li>Riproduzione minima e prevenzione ricorrenza</li></ul><a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/debugger.toml">Config TOML</a></div></article>
+            <article class="agent-card tier-frontier"><img src="assets/agents/performance_optimizer.png" alt="Avatar medievale del performance_optimizer" /><div class="card-content"><div class="card-meta"><span>Analysis</span><span>read-only</span></div><h4>performance_optimizer</h4><p>Analisi di latenza, bundle, memoria, Core Web Vitals e bottleneck misurabili.</p><dl><div><dt>Model</dt><dd>gpt-5.5</dd></div><div><dt>Reasoning</dt><dd>medium</dd></div></dl><ul><li>Hot path, memoria e lavoro ripetuto</li><li>Bundle, code splitting e render churn</li><li>LCP, INP, CLS e TBT</li></ul><a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/performance_optimizer.toml">Config TOML</a></div></article>
+          </div>
+        </section>
+
+        <section class="lane">
+          <h3>Prodotto, ricerca e AI quality</h3>
+          <div class="agent-grid">
+            <article class="agent-card tier-mini"><img src="assets/agents/docs_researcher.png" alt="Avatar medievale del docs_researcher" /><div class="card-content"><div class="card-meta"><span>Research</span><span>read-only</span></div><h4>docs_researcher</h4><p>Verifica comportamento API, framework, versioni e opzioni da documentazione primaria.</p><dl><div><dt>Model</dt><dd>gpt-5.4-mini</dd></div><div><dt>Reasoning</dt><dd>medium</dd></div></dl><ul><li>Default, caveat e deprecazioni</li><li>Contratti API e failure mode</li><li>Fatti documentati separati da inferenze</li></ul><a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/docs_researcher.toml">Config TOML</a></div></article>
+            <article class="agent-card tier-frontier"><img src="assets/agents/product_manager.png" alt="Avatar medievale del product_manager" /><div class="card-content"><div class="card-meta"><span>Product</span><span>read-only</span></div><h4>product_manager</h4><p>Framing prodotto, scope, PRD, tradeoff, acceptance criteria e success signal.</p><dl><div><dt>Model</dt><dd>gpt-5.5</dd></div><div><dt>Reasoning</dt><dd>low</dd></div></dl><ul><li>Problema e target user</li><li>Now/next/later scope</li><li>Criteri verificabili</li></ul><a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/product_manager.toml">Config TOML</a></div></article>
+            <article class="agent-card tier-mini"><img src="assets/agents/ux_researcher.png" alt="Avatar medievale dell'ux_researcher" /><div class="card-content"><div class="card-meta"><span>Product</span><span>read-only</span></div><h4>ux_researcher</h4><p>Sintesi di utenti, journey, rischi di usabilità, personas e validazione leggera.</p><dl><div><dt>Model</dt><dd>gpt-5.4-mini</dd></div><div><dt>Reasoning</dt><dd>medium</dd></div></dl><ul><li>Jobs-to-be-done e contesto</li><li>Friction, accessibilità e trust</li><li>Evidence separata da preferenze</li></ul><a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/ux_researcher.toml">Config TOML</a></div></article>
+            <article class="agent-card tier-frontier"><img src="assets/agents/eval_engineer.png" alt="Avatar medievale dell'eval_engineer" /><div class="card-content"><div class="card-meta"><span>AI Quality</span><span>read-only</span></div><h4>eval_engineer</h4><p>Disegna eval per prompt, retrieval, tool use, workflow agentici e criteri regressione.</p><dl><div><dt>Model</dt><dd>gpt-5.5</dd></div><div><dt>Reasoning</dt><dd>medium</dd></div></dl><ul><li>Scenario coverage legata a task reali</li><li>Rubriche e soglie pass/fail</li><li>Cost, latency e regression thresholds</li></ul><a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/eval_engineer.toml">Config TOML</a></div></article>
+          </div>
+        </section>
+      </section>
+
+      <section class="section skills-section" id="skill">
+        <div class="section-heading">
+          <p class="kicker">Skill repo-local</p>
+          <h2>25 rituali operativi, piccoli e verificabili</h2>
+          <p>
+            Le skill sono raggruppate come nel catalogo. Ogni scena è generata per rappresentare il workflow,
+            mentre titolo, descrizione e passaggi sono testo HTML verificato dai file <code>SKILL.md</code>.
+          </p>
+        </div>
+
+        <div class="skill-groups">
+          <section class="skill-group"><h3>Discovery e planning</h3><div class="skill-grid">
+            <article class="skill-card"><img src="assets/skills/repo-discovery.png" alt="Scena medievale per repo-discovery" /><div><h4>repo-discovery</h4><p>Primo passaggio in repo sconosciute: esplora root, docs e comandi rilevanti.</p><ol><li>Ispeziona root e manifest</li><li>Leggi AGENTS, README e docs</li><li>Separa fatti, assunzioni e unknown</li></ol><a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.agents/skills/repo-discovery/SKILL.md">SKILL.md</a></div></article>
+            <article class="skill-card"><img src="assets/skills/brainstorming.png" alt="Scena medievale per brainstorming" /><div><h4>brainstorming</h4><p>Per idee creative, prodotto, architettura o UX quando direzione e successo non sono chiari.</p><ol><li>Riformula goal e vincoli</li><li>Offre 2-3 approcci se utili</li><li>Converte in acceptance criteria</li></ol><a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.agents/skills/brainstorming/SKILL.md">SKILL.md</a></div></article>
+            <article class="skill-card"><img src="assets/skills/planning-contract.png" alt="Scena medievale per planning-contract" /><div><h4>planning-contract</h4><p>Per lavoro sostanziale o rischioso che richiede un piano decision-complete.</p><ol><li>Grounding in evidenza repo</li><li>Goal, non-goal e vincoli</li><li>Verifica e acceptance criteria</li></ol><a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.agents/skills/planning-contract/SKILL.md">SKILL.md</a></div></article>
+            <article class="skill-card"><img src="assets/skills/writing-plans.png" alt="Scena medievale per writing-plans" /><div><h4>writing-plans</h4><p>Piani implementativi con sequenza, superfici toccate, verifica e rischi.</p><ol><li>Definisce goal e rischio</li><li>Fasi verificabili</li><li>Rollback o recovery se serve</li></ol><a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.agents/skills/writing-plans/SKILL.md">SKILL.md</a></div></article>
+          </div></section>
+
+          <section class="skill-group"><h3>Orchestrazione</h3><div class="skill-grid">
+            <article class="skill-card"><img src="assets/skills/subagent-driven-development.png" alt="Scena medievale per subagent-driven-development" /><div><h4>subagent-driven-development</h4><p>Usa subagenti solo quando workstream indipendenti riducono rischio o contesto.</p><ol><li>Conferma piano concreto</li><li>Sceglie pochi agenti utili</li><li>Integra e verifica nel parent</li></ol><a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.agents/skills/subagent-driven-development/SKILL.md">SKILL.md</a></div></article>
+            <article class="skill-card"><img src="assets/skills/using-git-worktrees.png" alt="Scena medievale per using-git-worktrees" /><div><h4>using-git-worktrees</h4><p>Isola feature work o workstream paralleli senza disturbare il checkout corrente.</p><ol><li>Rileva worktree e submodule</li><li>Chiede prima di creare</li><li>Preferisce .worktrees ignorato</li></ol><a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.agents/skills/using-git-worktrees/SKILL.md">SKILL.md</a></div></article>
+          </div></section>
+
+          <section class="skill-group"><h3>Build discipline</h3><div class="skill-grid">
+            <article class="skill-card"><img src="assets/skills/tdd-workflow.png" alt="Scena medievale per tdd-workflow" /><div><h4>tdd-workflow</h4><p>Quando un comportamento può essere protetto da test, soprattutto bug fix e logica condivisa.</p><ol><li>Definisce behavior atteso</li><li>Test fallente rilevante</li><li>Fix minima e refactor solo utile</li></ol><a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.agents/skills/tdd-workflow/SKILL.md">SKILL.md</a></div></article>
+            <article class="skill-card"><img src="assets/skills/systematic-debugging.png" alt="Scena medievale per systematic-debugging" /><div><h4>systematic-debugging</h4><p>Per bug, test falliti, flaky behavior, runtime error e regressioni non spiegate.</p><ol><li>Cattura sintomo esatto</li><li>Riduce a caso osservabile</li><li>Ipotesi con check falsificanti</li></ol><a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.agents/skills/systematic-debugging/SKILL.md">SKILL.md</a></div></article>
+            <article class="skill-card"><img src="assets/skills/verification-loop.png" alt="Scena medievale per verification-loop" /><div><h4>verification-loop</h4><p>Prima di dichiarare completezza: check mirati, fallimenti ispezionati e rischio residuo.</p><ol><li>Identifica failure mode</li><li>Run check stretti</li><li>Riporta cosa è stato e non è stato verificato</li></ol><a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.agents/skills/verification-loop/SKILL.md">SKILL.md</a></div></article>
+            <article class="skill-card"><img src="assets/skills/branch-finish.png" alt="Scena medievale per branch-finish" /><div><h4>branch-finish</h4><p>Chiusura branch: diff review, artefatti accidentali, segreti, scope e verifica.</p><ol><li>git status --short --branch</li><li>Review diff e rumore generato</li><li>Riassume check e rischio</li></ol><a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.agents/skills/branch-finish/SKILL.md">SKILL.md</a></div></article>
+          </div></section>
+
+          <section class="skill-group"><h3>Review e rischio</h3><div class="skill-grid">
+            <article class="skill-card"><img src="assets/skills/code-review.png" alt="Scena medievale per code-review" /><div><h4>code-review</h4><p>Stance PR-review: findings prima, evidenza sempre, bugs e regressioni sopra lo stile.</p><ol><li>Identifica base e diff</li><li>Legge contesto circostante</li><li>Ordina findings per severità</li></ol><a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.agents/skills/code-review/SKILL.md">SKILL.md</a></div></article>
+            <article class="skill-card"><img src="assets/skills/security-review.png" alt="Scena medievale per security-review" /><div><h4>security-review</h4><p>Per auth, segreti, input handling, dipendenze, config o esposizione production.</p><ol><li>Mappa asset e trust boundary</li><li>Controlla auth, input e segreti</li><li>Rank per impatto e likelihood</li></ol><a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.agents/skills/security-review/SKILL.md">SKILL.md</a></div></article>
+            <article class="skill-card"><img src="assets/skills/dependency-review.png" alt="Scena medievale per dependency-review" /><div><h4>dependency-review</h4><p>Gestione terze parti: package manager, licenze, advisory, lockfile e rollback.</p><ol><li>Identifica manifest e runtime</li><li>Motiva la dipendenza</li><li>Valuta licenza, security e bundle</li></ol><a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.agents/skills/dependency-review/SKILL.md">SKILL.md</a></div></article>
+            <article class="skill-card"><img src="assets/skills/performance-audit.png" alt="Scena medievale per performance-audit" /><div><h4>performance-audit</h4><p>Performance measurement-led: latency, bundle, memory, database e Core Web Vitals.</p><ol><li>Definisce metrica e soglia</li><li>Misura prima di ottimizzare</li><li>Prioritizza impatto, confidenza e rischio</li></ol><a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.agents/skills/performance-audit/SKILL.md">SKILL.md</a></div></article>
+            <article class="skill-card"><img src="assets/skills/accessibility-audit.png" alt="Scena medievale per accessibility-audit" /><div><h4>accessibility-audit</h4><p>Review pratica per keyboard, screen reader support, semantica e rischio WCAG.</p><ol><li>Keyboard navigation end-to-end</li><li>Landmark, heading, label e role</li><li>Contrasto e focus visibility</li></ol><a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.agents/skills/accessibility-audit/SKILL.md">SKILL.md</a></div></article>
+            <article class="skill-card"><img src="assets/skills/evidence-qa.png" alt="Scena medievale per evidence-qa" /><div><h4>evidence-qa</h4><p>Evita claim non supportate: screenshot, log, test output e riproduzioni dirette.</p><ol><li>Elenca le claim</li><li>Sceglie evidenza diretta</li><li>Registra pass, fail e gap</li></ol><a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.agents/skills/evidence-qa/SKILL.md">SKILL.md</a></div></article>
+          </div></section>
+
+          <section class="skill-group"><h3>Prodotto, ricerca e documentazione</h3><div class="skill-grid">
+            <article class="skill-card"><img src="assets/skills/prd-writing.png" alt="Scena medievale per prd-writing" /><div><h4>prd-writing</h4><p>Requisiti eseguibili: problema utente, goal, non-goal e acceptance criteria.</p><ol><li>Definisce problema e pubblico</li><li>Journey e requirements</li><li>Criteri testabili</li></ol><a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.agents/skills/prd-writing/SKILL.md">SKILL.md</a></div></article>
+            <article class="skill-card"><img src="assets/skills/feature-request-triage.png" alt="Scena medievale per feature-request-triage" /><div><h4>feature-request-triage</h4><p>Trasforma richieste in opportunità prioritarie: impatto, reach, effort, rischio.</p><ol><li>Raggruppa per problema utente</li><li>Stima impatto e rischio</li><li>Raccomanda now/next/later</li></ol><a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.agents/skills/feature-request-triage/SKILL.md">SKILL.md</a></div></article>
+            <article class="skill-card"><img src="assets/skills/recent-research.png" alt="Scena medievale per recent-research" /><div><h4>recent-research</h4><p>Per decisioni che dipendono da informazioni correnti o segnali esterni recenti.</p><ol><li>Definisce domanda e finestra</li><li>Preferisce fonti primarie</li><li>Separa fatti, segnali e interpretazione</li></ol><a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.agents/skills/recent-research/SKILL.md">SKILL.md</a></div></article>
+            <article class="skill-card"><img src="assets/skills/release-notes.png" alt="Scena medievale per release-notes" /><div><h4>release-notes</h4><p>Traduce diff e PR in comunicazione utile per utenti e stakeholder.</p><ol><li>Separa user-visible e maintenance</li><li>Raggruppa Added, Changed, Fixed</li><li>Segnala migration o known issue</li></ol><a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.agents/skills/release-notes/SKILL.md">SKILL.md</a></div></article>
+            <article class="skill-card"><img src="assets/skills/technical-writing.png" alt="Scena medievale per technical-writing" /><div><h4>technical-writing</h4><p>README, runbook, API docs, troubleshooting e migration docs accurate.</p><ol><li>Identifica lettore e task</li><li>Verifica comandi e path</li><li>Preserva gotcha e prerequisiti</li></ol><a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.agents/skills/technical-writing/SKILL.md">SKILL.md</a></div></article>
+            <article class="skill-card"><img src="assets/skills/eval-design.png" alt="Scena medievale per eval-design" /><div><h4>eval-design</h4><p>Rende misurabili prompt, AI feature, retrieval, tool workflow e agent behavior.</p><ol><li>Obiettivo eval e workflow</li><li>Scenario matrix e rubric</li><li>Soglie e decision rule</li></ol><a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.agents/skills/eval-design/SKILL.md">SKILL.md</a></div></article>
+            <article class="skill-card"><img src="assets/skills/incident-response.png" alt="Scena medievale per incident-response" /><div><h4>incident-response</h4><p>Incidenti production: stabilizzare, preservare evidenza, verificare recovery.</p><ol><li>Impatto, timeline e severità</li><li>Rollback o mitigazione prima</li><li>Root cause solo dopo evidenza</li></ol><a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.agents/skills/incident-response/SKILL.md">SKILL.md</a></div></article>
+          </div></section>
+
+          <section class="skill-group"><h3>Frontend taste</h3><div class="skill-grid">
+            <article class="skill-card"><img src="assets/skills/frontend-taste.png" alt="Scena medievale per frontend-taste" /><div><h4>frontend-taste</h4><p>UI polish, hierarchy, spacing, controlli usabili e responsive text fit.</p><ol><li>Inferisce audience e job</li><li>Sceglie direzione coerente</li><li>Verifica responsive layout</li></ol><a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.agents/skills/frontend-taste/SKILL.md">SKILL.md</a></div></article>
+            <article class="skill-card"><img src="assets/skills/design-taste-frontend.png" alt="Scena medievale per design-taste-frontend" /><div><h4>design-taste-frontend</h4><p>Workflow anti-slop per landing e redesign con art direction più forte.</p><ol><li>Legge brief prima del codice</li><li>Fissa design read e dials</li><li>Esegue pre-flight visual audit</li></ol><a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.agents/skills/design-taste-frontend/SKILL.md">SKILL.md</a></div></article>
+          </div></section>
+        </div>
+      </section>
+
+      <section class="section paseo" id="paseo">
+        <div class="section-heading align-left">
+          <p class="kicker">Playbook Paseo</p>
+          <h2>Orchestrazione leggera, non sostituzione del lavoro locale.</h2>
+          <p>
+            Il playbook della repo prescrive un flusso single-agent di default. Paseo entra quando advisor,
+            committee, handoff o loop riducono concretamente rischio, incertezza o lavoro ripetitivo.
+          </p>
+        </div>
+        <div class="paseo-grid">
+          <article><h3>Default flow</h3><p>Un agente Codex legge contesto, implementa il minimo sicuro, verifica e riporta rischio residuo.</p></article>
+          <article><h3>Advisor</h3><p>Seconda opinione breve per tradeoff architetturali, root cause incerta o design sensibile.</p></article>
+          <article><h3>Committee</h3><p>Analisi più profonda per problemi bloccati, refactor rischiosi o requisiti conflittuali.</p></article>
+          <article><h3>Handoff</h3><p>Passaggio completo di goal, stato repo, file, comandi, open question e prossimo step.</p></article>
+          <article><h3>Loop</h3><p>Iterazione autonoma solo con criterio verificabile: test passa, comando pulito, UI controllata.</p></article>
+        </div>
+      </section>
+
+      <section class="section sources" id="fonti">
+        <div class="section-heading">
+          <p class="kicker">Fonti e confini</p>
+          <h2>Presentazione, non duplicato del README.</h2>
+          <p>La pagina racconta la squadra. Le fonti operative restano linkate e verificabili nella repository.</p>
+        </div>
+        <div class="source-grid">
+          <a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/AGENTS.md"><span>Contratto</span>AGENTS.md</a>
+          <a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/docs/agent-catalog.md"><span>Matrice</span>Agent Catalog</a>
+          <a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/docs/agent-workflows.md"><span>Playbook</span>Agent Workflows</a>
+          <a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/docs/source-curation.md"><span>Cura fonti</span>Source Curation</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand" href="#top">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48">
+            <path d="M24 4 41 11v13c0 10-6.8 16.8-17 20C13.8 40.8 7 34 7 24V11L24 4Z" />
+            <path d="m19 17-6 7 6 7M29 17l6 7-6 7M26 15l-4 18" />
+          </svg>
+        </span>
+        <span>unaSquadraFortissimi</span>
+      </a>
+      <p>GitHub Pages statico. Nessuna dipendenza runtime, nessun README riscritto.</p>
+    </footer>
+  </body>
+</html>

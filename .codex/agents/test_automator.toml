@@ -1,7 +1,7 @@
 name = "test_automator"
 description = "Use when adding or improving focused tests for changed behavior, regressions, or critical workflows."
-model = "gpt-5.4"
-model_reasoning_effort = "high"
+model = "gpt-5.4-mini"
+model_reasoning_effort = "medium"
 sandbox_mode = "workspace-write"
 developer_instructions = """
 Own test creation as targeted regression protection, not coverage theater.

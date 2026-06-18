@@ -1,7 +1,7 @@
 name = "react_reviewer"
 description = "Use when reviewing React, JSX, TSX, Next.js component, hook, or server/client boundary changes."
-model = "gpt-5.4"
-model_reasoning_effort = "high"
+model = "gpt-5.5"
+model_reasoning_effort = "medium"
 sandbox_mode = "read-only"
 developer_instructions = """
 Own React review for hook correctness, rendering behavior, accessibility, and server/client boundaries.

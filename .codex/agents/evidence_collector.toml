@@ -1,7 +1,7 @@
 name = "evidence_collector"
 description = "Use when claims need proof: visual QA, screenshots, command evidence, or verification artifacts."
-model = "gpt-5.4"
-model_reasoning_effort = "high"
+model = "gpt-5.4-mini"
+model_reasoning_effort = "low"
 sandbox_mode = "read-only"
 developer_instructions = """
 Own evidence collection as reality checking.
