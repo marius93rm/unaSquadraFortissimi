@@ -24,6 +24,7 @@
 - [What's Included](#whats-included)
 - [Repository Map](#repository-map)
 - [Start a New Project](#start-a-new-project)
+- [Validation](#validation)
 - [Codex Agents](#codex-agents)
 - [Local Skills](#local-skills)
 - [Paseo Workflows](#paseo-workflows)
@@ -51,7 +52,9 @@ The point is not to install every hook, command, provider, and research pipeline
 | **Orchestration** | Paseo | Advisor, committee, handoff, bounded loops |
 | **Knowledge** | Markdown | Human-readable operating contract and workflow docs |
 | **Configuration** | TOML | Small project-local Codex agent config |
-| **Assets** | Generated image | Project identity and README hero |
+| **Showcase** | Static HTML/CSS | Public landing page for the skeleton and catalog |
+| **Validation** | Python stdlib | Repo-local integrity checks for docs, agent files, skill files, and landing links |
+| **Assets** | Generated images | Project identity, agent portraits, and skill scenes |
 
 ## What's Included
 
@@ -64,7 +67,13 @@ The point is not to install every hook, command, provider, and research pipeline
 | `docs/agent-workflows.md` | Practical Paseo playbook |
 | `docs/agent-catalog.md` | Agent and skill activation matrix |
 | `docs/source-curation.md` | Rules for importing ideas without copying entire catalogs |
+| `index.html` | Static showcase page generated from the repo-local concept and catalog |
+| `styles.css` | Visual system for the static showcase |
+| `favicon.svg` | Small project mark for the showcase page |
+| `scripts/validate_repo.py` | Integrity check for agent files, skill files, docs, local links, anchors, assets, and count drift |
 | `assets/agent-fellowship-medieval.png` | Generated medieval fellowship hero image |
+| `assets/agents/` | Generated portraits for Codex subagents |
+| `assets/skills/` | Generated scenes for repo-local skills |
 
 ## Repository Map
 
@@ -72,8 +81,15 @@ The point is not to install every hook, command, provider, and research pipeline
 .
 |-- AGENTS.md
 |-- README.md
+|-- index.html
+|-- styles.css
+|-- favicon.svg
+|-- scripts/
+|   `-- validate_repo.py
 |-- assets/
-|   `-- agent-fellowship-medieval.png
+|   |-- agent-fellowship-medieval.png
+|   |-- agents/
+|   `-- skills/
 |-- docs/
 |   |-- agent-catalog.md
 |   |-- agent-workflows.md
@@ -139,6 +155,25 @@ The point is not to install every hook, command, provider, and research pipeline
 3. **Update `AGENTS.md`** with real build, test, lint, deploy, and safety rules.
 4. **Prune the roster** if a project does not need all specialists.
 5. **Use Paseo deliberately** when a second opinion, committee, handoff, or loop reduces risk.
+6. **Run validation** after pruning or changing agent, skill, docs, or showcase files.
+
+## Validation
+
+Run the repo-local integrity checks from the repository root:
+
+```bash
+python scripts/validate_repo.py
+```
+
+The script checks:
+
+- every `.codex/agents/*.toml` has the required fields and a `name` matching its filename
+- every `.agents/skills/*/SKILL.md` has frontmatter with a `name` matching its directory
+- `AGENTS.md`, `README.md`, and `docs/agent-catalog.md` mention the current agent and skill names
+- the showcase `index.html` has valid local anchors, local assets, GitHub blob links, and image alt text
+- the README map and count phrases have not drifted from the current repo shape
+
+Current integrity target: 22 Codex subagents, 25 repo-local skills, 22 agenti Codex e 25 skill repo-local.
 
 ## Codex Agents
 
@@ -219,13 +254,13 @@ This skeleton is inspired by:
 
 The rule is simple: **copy the best operating patterns, not the entire catalogs**.
 
-If a source contains 200 useful ideas, this repo should still keep only the roles and workflows that are stable, repeated, and generally useful across future projects.
-
 ## Non-Goals
 
-- No global Codex configuration
-- No tokens, credentials, provider settings, or personal paths
-- No uncurated imported skill catalog
-- No vendored research engines
-- No framework choice before a real project needs one
-- No agents that differ only by branding or personality
+This repository intentionally avoids:
+
+- global Codex or machine-level configuration
+- provider keys, telemetry, or API-specific setup
+- vendored upstream catalogs
+- generated installers and shell automation
+- project-specific product code
+- pretending that more agents automatically means better work
