@@ -99,8 +99,9 @@ Product, research, and docs:
 - `eval-design`
 - `incident-response`
 
-Frontend taste:
+Frontend systems:
 
+- `design-system-extraction`
 - `frontend-taste`
 - `design-taste-frontend`
 

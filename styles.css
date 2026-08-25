@@ -861,6 +861,12 @@ dd {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .button:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
@@ -868,5 +874,160 @@ dd {
     transition-duration: 0.001ms !important;
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
+  }
+}
+
+
+/* Redesign medievale: capitoli, sigilli e specifiche della compagnia. */
+[id] {
+  scroll-margin-top: 5.5rem;
+}
+
+.brand-copy {
+  display: inline-flex;
+  align-items: baseline;
+  min-width: 0;
+}
+
+.brand-copy b {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.brand-copy i {
+  margin-left: 0.16em;
+  color: var(--gold);
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+}
+
+.kicker > span {
+  display: inline-flex;
+  margin-right: 0;
+  border: 1px solid rgba(216, 168, 93, 0.45);
+  border-radius: 999px;
+  padding: 0.3rem 0.55rem;
+  color: var(--ink);
+  background: var(--gold);
+  letter-spacing: 0.06em;
+}
+
+.kicker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.hero-spec {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  max-width: 40rem;
+  margin-top: 2rem;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--line);
+}
+
+.hero-spec > span {
+  min-width: 0;
+  padding: 0.85rem;
+  color: var(--muted);
+  background: rgba(16, 12, 8, 0.82);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.7rem;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.hero-spec > span + span {
+  border-left: 1px solid var(--line);
+}
+
+.hero-spec b {
+  display: block;
+  margin-bottom: 0.22rem;
+  color: var(--paper-strong);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.65rem;
+  line-height: 1;
+}
+
+.hero-art {
+  overflow: visible;
+  border: 1px solid rgba(216, 168, 93, 0.32);
+  border-radius: var(--radius);
+  padding: 0.45rem;
+  background: rgba(29, 23, 17, 0.92);
+}
+
+.hero-art img {
+  border: 0;
+  border-radius: 4px 4px 0 0;
+}
+
+.hero-art figcaption {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 0.35rem 0.3rem;
+  color: var(--muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.68rem;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.hero-art figcaption span {
+  color: var(--gold);
+  font-weight: 900;
+}
+
+.button span[aria-hidden="true"] {
+  font-size: 1.05rem;
+}
+
+.hero h1 {
+  width: 100%;
+  max-width: none;
+  font-size: clamp(3.2rem, 6vw, 5.2rem);
+  overflow-wrap: normal;
+}
+
+.hero h1 span {
+  white-space: nowrap;
+}
+
+.source-grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+@media (max-width: 1100px) {
+  .source-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .brand-copy {
+    flex-wrap: wrap;
+  }
+
+  .hero-spec,
+  .source-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-spec > span + span {
+    border-top: 1px solid var(--line);
+    border-left: 0;
+  }
+
+  .hero-art figcaption {
+    flex-direction: column;
+  }
+
+  .kicker > span {
+    margin-right: 0;
   }
 }

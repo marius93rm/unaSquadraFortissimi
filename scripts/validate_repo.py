@@ -10,6 +10,7 @@ high-signal drift between the canonical files:
 - README.md
 - docs/agent-catalog.md
 - index.html
+- .gitignore
 """
 
 from __future__ import annotations
@@ -234,6 +235,7 @@ def check_docs(failures: list[CheckResult], agent_names: list[str], skill_names:
 
     readme_text = read_text(readme)
     expected_map_entries = [
+        ".gitignore",
         "index.html",
         "styles.css",
         "favicon.svg",
@@ -275,14 +277,18 @@ def repo_blob_path(value: str) -> Path | None:
     return ROOT / unquote(raw_path)
 
 
-def check_html(failures: list[CheckResult]) -> None:
+def check_html(failures: list[CheckResult], agent_names: list[str], skill_names: list[str]) -> None:
     html_path = ROOT / "index.html"
     if not html_path.exists():
         fail(failures, html_path, "static landing page is missing")
         return
 
+    html_text = read_text(html_path)
+    assert_text_mentions_all(failures, html_path, agent_names, "agent")
+    assert_text_mentions_all(failures, html_path, skill_names, "skill")
+
     parser = LocalHtmlParser()
-    parser.feed(read_text(html_path))
+    parser.feed(html_text)
 
     for tag, value in parser.links:
         if not value or value.startswith("#"):
@@ -308,12 +314,29 @@ def check_html(failures: list[CheckResult]) -> None:
             fail(failures, html_path, f"image `{src}` is missing alt text")
 
 
+def check_gitignore(failures: list[CheckResult]) -> None:
+    gitignore = ROOT / ".gitignore"
+    if not gitignore.exists():
+        fail(failures, gitignore, "required repository hygiene file is missing")
+        return
+
+    patterns = {
+        line.strip()
+        for line in read_text(gitignore).splitlines()
+        if line.strip() and not line.startswith("#")
+    }
+    for required in {".DS_Store", "__pycache__/", "node_modules/", ".env"}:
+        if required not in patterns:
+            fail(failures, gitignore, f"missing required ignore pattern: {required}")
+
+
 def run_checks() -> list[CheckResult]:
     failures: list[CheckResult] = []
     agent_names = check_agents(failures)
     skill_names = check_skills(failures)
     check_docs(failures, agent_names, skill_names)
-    check_html(failures)
+    check_html(failures, agent_names, skill_names)
+    check_gitignore(failures)
     return failures
 
 
@@ -334,7 +357,7 @@ def main() -> int:
         print("Repo validation passed.")
         print(f"- agents: {len(find_agent_files())}")
         print(f"- skills: {len(find_skill_files())}")
-        print("- docs, landing links, local assets, anchors, and count phrases checked")
+        print("- docs, landing catalog, links, local assets, anchors, counts, and .gitignore checked")
 
     return 0
 

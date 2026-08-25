@@ -23,19 +23,20 @@ This skeleton draws from multiple agent and skill repositories, but it intention
 - last30days informs the recent-research workflow and current-community-signal posture, but its engine, scripts, provider config, and cache checks are not vendored. Research snapshot: `mvanhorn/last30days-skill` commit `122158415ae4`.
 - pm-skills informs PRD writing, feature-request triage, release notes, product discovery, strategy, and PM execution workflows. Research snapshot: `phuryn/pm-skills` commit `d384f0c9eb81`.
 - taste-skill informs frontend quality guidance. The repo includes a compact general-purpose `frontend-taste` skill and a focused `design-taste-frontend` adaptation for landing pages, portfolios, and redesigns, sourced from `Leonxlnx/taste-skill` at commit `5436c5952cc88d18a034d496988680a8c28a836a` under MIT license.
+- stitch-skills informs source-first design-system extraction, semantic `DESIGN.md` contracts, structured UI briefs, real navigation/data boundaries, and bounded visual build loops. This repo adapts those tool-agnostic patterns without installing Stitch plugins, MCP configuration, credentials, upload scripts, or framework-specific generators. Research snapshot: `google-labs-code/stitch-skills` commit `0337446dadde6f8c94210444e2aa9d546126480f`, Apache-2.0.
 
 ## Imported Capabilities
 
 The repo now carries a curated middleweight profile:
 
 - 22 Codex subagents in `.codex/agents/`.
-- 25 repo-local skills in `.agents/skills/`.
+- 26 repo-local skills in `.agents/skills/`.
 - An activation matrix in `docs/agent-catalog.md`.
 - No upstream scripts, generated installers, global config, provider credentials, package manager dependencies, or telemetry.
 
 ## License Notes
 
-The sampled source repositories are MIT-licensed except Paseo, which has its own copyright license text. This repo adapts workflows and role boundaries rather than vendoring Paseo code.
+The sampled source repositories are mostly MIT-licensed. Paseo has its own copyright license text, while `google-labs-code/stitch-skills` is Apache-2.0. This repo adapts workflows and role boundaries rather than vendoring upstream code.
 
 When copying upstream text verbatim in the future, include the upstream license and commit in the copied file or in this document. Prefer concise repo-local adaptations unless exact upstream wording is required.
 

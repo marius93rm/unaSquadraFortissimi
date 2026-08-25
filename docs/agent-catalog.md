@@ -48,7 +48,7 @@ This catalog explains when to use each repo-local Codex subagent and skill. Keep
 | Product and docs | `prd-writing`, `feature-request-triage`, `release-notes`, `technical-writing`, `recent-research` | Shape requirements, research current facts, and document outcomes |
 | AI systems | `eval-design` | Define scenario coverage, rubrics, and regression gates |
 | Operations | `incident-response` | Stabilize incidents, preserve evidence, and verify recovery |
-| Frontend taste | `frontend-taste`, `design-taste-frontend` | Improve UI quality, hierarchy, responsive behavior, and art direction |
+| Frontend systems | `design-system-extraction`, `frontend-taste`, `design-taste-frontend` | Extract visual contracts, improve UI quality, and preserve responsive art direction |
 
 ## Recommended Combinations
 
@@ -56,7 +56,7 @@ This catalog explains when to use each repo-local Codex subagent and skill. Keep
 | --- | --- | --- |
 | New unfamiliar repo task | `context_manager` | `repo-discovery`, `planning-contract` |
 | Narrow bug fix | `minimal_change_engineer`, `debugger`, `test_automator` | `systematic-debugging`, `tdd-workflow`, `verification-loop` |
-| React feature | `frontend_developer`, `react_reviewer`, `typescript_reviewer`, `accessibility_tester` | `frontend-taste`, `accessibility-audit`, `verification-loop` |
+| React feature | `frontend_developer`, `react_reviewer`, `typescript_reviewer`, `accessibility_tester` | `design-system-extraction` when the visual contract is unclear, then `frontend-taste`, `accessibility-audit`, `verification-loop` |
 | Backend feature | `backend_developer`, `security_auditor`, `database_reviewer`, `test_automator` | `tdd-workflow`, `security-review`, `verification-loop` |
 | CI or release failure | `devops_engineer`, `evidence_collector` | `incident-response`, `verification-loop`, `branch-finish` |
 | Product discovery | `product_manager`, `ux_researcher`, `docs_researcher` | `brainstorming`, `feature-request-triage`, `recent-research`, `prd-writing` |

@@ -63,13 +63,14 @@ The point is not to install every hook, command, provider, and research pipeline
 | `AGENTS.md` | Main operating contract for agents working in this repository |
 | `.codex/config.toml` | Project-local Codex subagent limits |
 | `.codex/agents/` | 22 Codex subagents across implementation, review, product, ops, QA, and evals |
-| `.agents/skills/` | 25 compact repo-local skills |
+| `.agents/skills/` | 26 compact repo-local skills |
 | `docs/agent-workflows.md` | Practical Paseo playbook |
 | `docs/agent-catalog.md` | Agent and skill activation matrix |
 | `docs/source-curation.md` | Rules for importing ideas without copying entire catalogs |
 | `index.html` | Static showcase page generated from the repo-local concept and catalog |
 | `styles.css` | Visual system for the static showcase |
 | `favicon.svg` | Small project mark for the showcase page |
+| `.gitignore` | Curated exclusions for OS metadata, editors, secrets, caches, dependencies, and build output |
 | `scripts/validate_repo.py` | Integrity check for agent files, skill files, docs, local links, anchors, assets, and count drift |
 | `assets/agent-fellowship-medieval.png` | Generated medieval fellowship hero image |
 | `assets/agents/` | Generated portraits for Codex subagents |
@@ -80,6 +81,7 @@ The point is not to install every hook, command, provider, and research pipeline
 ```text
 .
 |-- AGENTS.md
+|-- .gitignore
 |-- README.md
 |-- index.html
 |-- styles.css
@@ -126,6 +128,7 @@ The point is not to install every hook, command, provider, and research pipeline
         |-- branch-finish/
         |-- code-review/
         |-- dependency-review/
+        |-- design-system-extraction/
         |-- design-taste-frontend/
         |-- eval-design/
         |-- evidence-qa/
@@ -170,10 +173,11 @@ The script checks:
 - every `.codex/agents/*.toml` has the required fields and a `name` matching its filename
 - every `.agents/skills/*/SKILL.md` has frontmatter with a `name` matching its directory
 - `AGENTS.md`, `README.md`, and `docs/agent-catalog.md` mention the current agent and skill names
-- the showcase `index.html` has valid local anchors, local assets, GitHub blob links, and image alt text
+- the showcase `index.html` mentions every agent and skill and has valid local anchors, local assets, GitHub blob links, and image alt text
 - the README map and count phrases have not drifted from the current repo shape
+- `.gitignore` preserves the repository's minimum hygiene patterns
 
-Current integrity target: 22 Codex subagents, 25 repo-local skills, 22 agenti Codex e 25 skill repo-local.
+Current integrity target: 22 Codex subagents, 26 repo-local skills, 22 agenti Codex e 26 skill repo-local.
 
 ## Codex Agents
 
@@ -211,6 +215,7 @@ Repo-local skills live in `.agents/skills/`.
 | `performance-audit` | Latency, Core Web Vitals, memory, bundle, or query bottlenecks |
 | `accessibility-audit` | Keyboard, semantics, focus, labels, and WCAG-oriented checks |
 | `evidence-qa` | Screenshot, command, log, and reproduction proof |
+| `design-system-extraction` | Extract semantic tokens and visual rules from frontend source into a durable `DESIGN.md` |
 | `frontend-taste` | Polished UI, hierarchy, spacing, responsive behavior |
 | `design-taste-frontend` | Stronger taste-skill workflow for landing pages, portfolios, and redesigns |
 | `recent-research` | Time-sensitive external facts and current community signals |
@@ -238,7 +243,7 @@ This skeleton is inspired by:
 
 > **Repo**
 >
-> Dati stelle letti da GitHub API il 2026-06-12.
+> Dati stelle letti da GitHub API il 2026-06-12; `stitch-skills` verificato il 2026-08-25.
 >
 > | Repo | Descrizione | Stelle | Link |
 > | --- | --- | ---: | --- |
@@ -251,6 +256,7 @@ This skeleton is inspired by:
 > | `last30days-skill` | Skill per ricerca recente su Reddit, X, YouTube, HN, Polymarket, GitHub e web. | 39,946 | [mvanhorn/last30days-skill](https://github.com/mvanhorn/last30days-skill) |
 > | `pm-skills` | Skill e comandi per product management: discovery, strategia, execution, launch e growth. | 16,504 | [phuryn/pm-skills](https://github.com/phuryn/pm-skills) |
 > | `taste-skill` | Skill per migliorare gusto visivo e ridurre output frontend generico. | 41,822 | [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) |
+> | `stitch-skills` | Workflow Google Labs per design system semantici, prompt UI strutturati e build loop visuali. | 8,177 | [google-labs-code/stitch-skills](https://github.com/google-labs-code/stitch-skills) |
 
 The rule is simple: **copy the best operating patterns, not the entire catalogs**.
 
