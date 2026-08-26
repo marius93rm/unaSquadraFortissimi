@@ -38,6 +38,8 @@ AGENT_REQUIRED_FIELDS = {
 
 ALLOWED_REASONING = {"low", "medium", "high"}
 ALLOWED_SANDBOX = {"read-only", "workspace-write"}
+ALLOWED_MODELS = {"gpt-5.6-sol", "gpt-5.6-terra", "gpt-5.6-luna"}
+MODEL_DISPLAY_ORDER = ("gpt-5.6-sol", "gpt-5.6-terra", "gpt-5.6-luna")
 
 
 @dataclass(frozen=True)
@@ -180,8 +182,8 @@ def check_agents(failures: list[CheckResult]) -> list[str]:
             fail(failures, path, f"invalid model_reasoning_effort: {data['model_reasoning_effort']}")
         if data["sandbox_mode"] not in ALLOWED_SANDBOX:
             fail(failures, path, f"invalid sandbox_mode: {data['sandbox_mode']}")
-        if not data["model"].startswith("gpt-"):
-            fail(failures, path, f"model should be an explicit gpt-* value, got {data['model']}")
+        if data["model"] not in ALLOWED_MODELS:
+            fail(failures, path, f"model should follow the repo GPT-5.6 routing, got {data['model']}")
         if len(data["developer_instructions"].split()) < 20:
             fail(failures, path, "developer_instructions look too short to guide the agent")
 
@@ -219,8 +221,9 @@ def check_docs(failures: list[CheckResult], agent_names: list[str], skill_names:
     agents_md = ROOT / "AGENTS.md"
     readme = ROOT / "README.md"
     catalog = ROOT / "docs" / "agent-catalog.md"
+    model_routing = ROOT / "docs" / "model-routing.md"
 
-    for path in [agents_md, readme, catalog]:
+    for path in [agents_md, readme, catalog, model_routing]:
         if not path.exists():
             fail(failures, path, "required documentation file is missing")
             return
@@ -228,6 +231,20 @@ def check_docs(failures: list[CheckResult], agent_names: list[str], skill_names:
     assert_text_mentions_all(failures, agents_md, agent_names, "agent")
     assert_text_mentions_all(failures, catalog, agent_names, "agent")
     assert_text_mentions_all(failures, readme, agent_names, "agent")
+    assert_text_mentions_all(failures, model_routing, agent_names, "agent")
+
+    for model in sorted(ALLOWED_MODELS):
+        if f"`{model}`" not in read_text(model_routing):
+            fail(failures, model_routing, f"missing model routing reference: {model}")
+
+    model_routing_text = read_text(model_routing)
+    for agent_path in find_agent_files():
+        data = parse_simple_toml(read_text(agent_path))
+        model = data.get("model", "")
+        name = data.get("name", agent_path.stem)
+        row_pattern = rf"\| `{re.escape(model)}` \| [^\n]*`{re.escape(name)}`"
+        if not re.search(row_pattern, model_routing_text):
+            fail(failures, model_routing, f"agent routing does not match TOML: {name} -> {model}")
 
     assert_text_mentions_all(failures, agents_md, skill_names, "skill")
     assert_text_mentions_all(failures, catalog, skill_names, "skill")
@@ -286,6 +303,24 @@ def check_html(failures: list[CheckResult], agent_names: list[str], skill_names:
     html_text = read_text(html_path)
     assert_text_mentions_all(failures, html_path, agent_names, "agent")
     assert_text_mentions_all(failures, html_path, skill_names, "skill")
+
+    model_counts = {model: 0 for model in MODEL_DISPLAY_ORDER}
+    for agent_path in find_agent_files():
+        data = parse_simple_toml(read_text(agent_path))
+        model = data.get("model", "")
+        name = data.get("name", agent_path.stem)
+        card_pattern = (
+            rf"<h4>{re.escape(name)}</h4>"
+            rf"(?:(?!</article>).)*?<dt>Modello</dt><dd>{re.escape(model)}</dd>"
+        )
+        if not re.search(card_pattern, html_text, re.DOTALL):
+            fail(failures, html_path, f"agent card model does not match TOML: {name} -> {model}")
+        if model in model_counts:
+            model_counts[model] += 1
+
+    expected_model_summary = " / ".join(str(model_counts[model]) for model in MODEL_DISPLAY_ORDER)
+    if f"<h4>{expected_model_summary}</h4>" not in html_text:
+        fail(failures, html_path, f"model count summary is stale: expected {expected_model_summary}")
 
     parser = LocalHtmlParser()
     parser.feed(html_text)

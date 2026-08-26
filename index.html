@@ -104,16 +104,15 @@
             <p class="kicker">Modelli e permessi</p>
             <h3 id="model-routing-title">Ogni agente dichiara modello, ragionamento e permessi.</h3>
             <p>
-              I file TOML assegnano <code>gpt-5.5</code> a 13 ruoli che sviluppano, progettano o
-              analizzano. Gli altri 9 usano <code>gpt-5.4-mini</code> per raccogliere contesto,
-              documentare, testare e produrre prove.
+              I file TOML seguono la guida ufficiale GPT-5.6: Sol per il lavoro complesso e ad alto
+              impatto, Terra per gli specialisti quotidiani, Luna per attività strette e ripetibili.
             </p>
           </div>
           <div class="model-grid" aria-label="Riepilogo dell'assegnazione dei modelli dai file TOML">
             <article>
               <span>Modelli</span>
-              <h4>13 / 9</h4>
-              <p>13 agenti usano <code>gpt-5.5</code>; 9 usano <code>gpt-5.4-mini</code>.</p>
+              <h4>5 / 14 / 3</h4>
+              <p>5 agenti usano Sol, 14 Terra e 3 Luna.</p>
             </article>
             <article>
               <span>Ragionamento</span>
@@ -154,7 +153,7 @@
                 <div class="card-meta"><span>Contesto</span><span>read-only</span></div>
                 <h4>context_manager</h4>
                 <p>Raccoglie il contesto necessario prima di sviluppare, rivedere o delegare un'attività.</p>
-                <dl><div><dt>Modello</dt><dd>gpt-5.4-mini</dd></div><div><dt>Ragionamento</dt><dd>low</dd></div></dl>
+                <dl><div><dt>Modello</dt><dd>gpt-5.6-terra</dd></div><div><dt>Ragionamento</dt><dd>low</dd></div></dl>
                 <ul><li>Mappa file e punti di ingresso</li><li>Raccoglie regole da AGENTS, documenti e configurazione</li><li>Separa fatti, ipotesi e punti aperti</li></ul>
                 <a aria-label="Config TOML di context_manager" href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/context_manager.toml">Config TOML</a>
               </div>
@@ -165,7 +164,7 @@
                 <div class="card-meta"><span>Architettura</span><span>read-only</span></div>
                 <h4>architect</h4>
                 <p>Progetta confini, flussi dati e migrazioni prima di interventi che toccano più moduli.</p>
-                <dl><div><dt>Modello</dt><dd>gpt-5.5</dd></div><div><dt>Ragionamento</dt><dd>high</dd></div></dl>
+                <dl><div><dt>Modello</dt><dd>gpt-5.6-sol</dd></div><div><dt>Ragionamento</dt><dd>high</dd></div></dl>
                 <ul><li>Confini tra interfaccia, API, dominio e dati</li><li>Compatibilità, ripristino e osservabilità</li><li>Sequenza minima di implementazione</li></ul>
                 <a aria-label="Config TOML di architect" href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/architect.toml">Config TOML</a>
               </div>
@@ -176,7 +175,7 @@
                 <div class="card-meta"><span>Modifica minima</span><span>workspace-write</span></div>
                 <h4>minimal_change_engineer</h4>
                 <p>Esegue correzioni circoscritte quando il rischio è allargare il lavoro senza necessità.</p>
-                <dl><div><dt>Modello</dt><dd>gpt-5.4-mini</dd></div><div><dt>Ragionamento</dt><dd>medium</dd></div></dl>
+                <dl><div><dt>Modello</dt><dd>gpt-5.6-luna</dd></div><div><dt>Ragionamento</dt><dd>medium</dd></div></dl>
                 <ul><li>Parte dalla richiesta letterale</li><li>Modifica solo i file necessari</li><li>Lascia gli interventi futuri fuori dal diff</li></ul>
                 <a aria-label="Config TOML di minimal_change_engineer" href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/minimal_change_engineer.toml">Config TOML</a>
               </div>
@@ -193,7 +192,7 @@
                 <div class="card-meta"><span>Sviluppo</span><span>workspace-write</span></div>
                 <h4>backend_developer</h4>
                 <p>Implementa API, servizi, worker, autenticazione e persistenza quando il modulo coinvolto è chiaro.</p>
-                <dl><div><dt>Modello</dt><dd>gpt-5.5</dd></div><div><dt>Ragionamento</dt><dd>medium</dd></div></dl>
+                <dl><div><dt>Modello</dt><dd>gpt-5.6-terra</dd></div><div><dt>Ragionamento</dt><dd>medium</dd></div></dl>
                 <ul><li>Valida gli input e definisce gli output</li><li>Gestisce transazioni, tentativi e timeout</li><li>Controlla autenticazione e autorizzazione</li></ul>
                 <a aria-label="Config TOML di backend_developer" href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/backend_developer.toml">Config TOML</a>
               </div>
@@ -204,7 +203,7 @@
                 <div class="card-meta"><span>Sviluppo</span><span>workspace-write</span></div>
                 <h4>frontend_developer</h4>
                 <p>Implementa interfacce, stato, route, componenti e flussi che l'utente vede e usa.</p>
-                <dl><div><dt>Modello</dt><dd>gpt-5.5</dd></div><div><dt>Ragionamento</dt><dd>medium</dd></div></dl>
+                <dl><div><dt>Modello</dt><dd>gpt-5.6-terra</dd></div><div><dt>Ragionamento</dt><dd>medium</dd></div></dl>
                 <ul><li>Rende esplicite le transizioni di stato</li><li>Gestisce caricamento, vuoto, errore e successo</li><li>Controlla tastiera, focus e resa responsive</li></ul>
                 <a aria-label="Config TOML di frontend_developer" href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/frontend_developer.toml">Config TOML</a>
               </div>
@@ -215,7 +214,7 @@
                 <div class="card-meta"><span>Operazioni</span><span>workspace-write</span></div>
                 <h4>devops_engineer</h4>
                 <p>Gestisce integrazione continua, rilasci, distribuzione e configurazione degli ambienti.</p>
-                <dl><div><dt>Modello</dt><dd>gpt-5.5</dd></div><div><dt>Ragionamento</dt><dd>medium</dd></div></dl>
+                <dl><div><dt>Modello</dt><dd>gpt-5.6-terra</dd></div><div><dt>Ragionamento</dt><dd>medium</dd></div></dl>
                 <ul><li>Rende riproducibili build e artefatti</li><li>Analizza CI, cache e passaggi instabili</li><li>Controlla segreti e differenze tra ambienti</li></ul>
                 <a aria-label="Config TOML di devops_engineer" href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/devops_engineer.toml">Config TOML</a>
               </div>
@@ -226,7 +225,7 @@
                 <div class="card-meta"><span>Documentazione</span><span>workspace-write</span></div>
                 <h4>technical_writer</h4>
                 <p>Scrive README, documentazione API, guide operative, migrazioni e note di rilascio.</p>
-                <dl><div><dt>Modello</dt><dd>gpt-5.4-mini</dd></div><div><dt>Ragionamento</dt><dd>low</dd></div></dl>
+                <dl><div><dt>Modello</dt><dd>gpt-5.6-terra</dd></div><div><dt>Ragionamento</dt><dd>low</dd></div></dl>
                 <ul><li>Verifica i comandi di avvio, test e distribuzione</li><li>Documenta contratti API ed esempi</li><li>Registra problemi noti e soluzioni</li></ul>
                 <a aria-label="Config TOML di technical_writer" href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/technical_writer.toml">Config TOML</a>
               </div>
@@ -237,33 +236,33 @@
         <section class="lane">
           <h3>Revisione e sicurezza</h3>
           <div class="agent-grid">
-            <article class="agent-card tier-frontier"><img src="assets/agents/reviewer.png" alt="Avatar medievale del reviewer" /><div class="card-content"><div class="card-meta"><span>Revisione</span><span>read-only</span></div><h4>reviewer</h4><p>Esamina il diff per trovare errori, regressioni, rischi di sicurezza e test mancanti.</p><dl><div><dt>Modello</dt><dd>gpt-5.5</dd></div><div><dt>Ragionamento</dt><dd>medium</dd></div></dl><ul><li>Ordina i problemi per gravità</li><li>Collega ogni rilievo a file, comandi o comportamento</li><li>Propone la correzione più circoscritta</li></ul><a aria-label="Config TOML di reviewer" href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/reviewer.toml">Config TOML</a></div></article>
-            <article class="agent-card tier-frontier"><img src="assets/agents/typescript_reviewer.png" alt="Avatar medievale del typescript_reviewer" /><div class="card-content"><div class="card-meta"><span>Revisione</span><span>read-only</span></div><h4>typescript_reviewer</h4><p>Controlla codice TypeScript e JavaScript, tipi, operazioni asincrone e sicurezza in esecuzione.</p><dl><div><dt>Modello</dt><dd>gpt-5.5</dd></div><div><dt>Ragionamento</dt><dd>medium</dd></div></dl><ul><li>Cast rischiosi, <code>any</code> e valori nulli</li><li>Promise non gestite, corse e cancellazione</li><li>Confini tra moduli, ambienti ed esecuzione</li></ul><a aria-label="Config TOML di typescript_reviewer" href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/typescript_reviewer.toml">Config TOML</a></div></article>
-            <article class="agent-card tier-frontier"><img src="assets/agents/react_reviewer.png" alt="Avatar medievale del react_reviewer" /><div class="card-content"><div class="card-meta"><span>Revisione</span><span>read-only</span></div><h4>react_reviewer</h4><p>Controlla componenti React, hook, rendering, accessibilità e confini tra server e client.</p><dl><div><dt>Modello</dt><dd>gpt-5.5</dd></div><div><dt>Ragionamento</dt><dd>medium</dd></div></dl><ul><li>Hook condizionali e dipendenze errate</li><li>Modifiche dirette allo stato e chiavi instabili</li><li>Codice client eseguito per errore sul server</li></ul><a aria-label="Config TOML di react_reviewer" href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/react_reviewer.toml">Config TOML</a></div></article>
-            <article class="agent-card tier-frontier"><img src="assets/agents/security_auditor.png" alt="Avatar medievale del security_auditor" /><div class="card-content"><div class="card-meta"><span>Sicurezza</span><span>read-only</span></div><h4>security_auditor</h4><p>Controlla autenticazione, segreti, input, dipendenze e configurazione dell'infrastruttura.</p><dl><div><dt>Modello</dt><dd>gpt-5.5</dd></div><div><dt>Ragionamento</dt><dd>high</dd></div></dl><ul><li>Confini di autenticazione e autorizzazione</li><li>Iniezioni e gestione dei segreti</li><li>Impostazioni insicure e catena delle dipendenze</li></ul><a aria-label="Config TOML di security_auditor" href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/security_auditor.toml">Config TOML</a></div></article>
-            <article class="agent-card tier-frontier"><img src="assets/agents/database_reviewer.png" alt="Avatar medievale del database_reviewer" /><div class="card-content"><div class="card-meta"><span>Database</span><span>read-only</span></div><h4>database_reviewer</h4><p>Controlla schema, SQL, migrazioni, indici, permessi a livello di riga e prestazioni.</p><dl><div><dt>Modello</dt><dd>gpt-5.5</dd></div><div><dt>Ragionamento</dt><dd>high</dd></div></dl><ul><li>Vincoli, cardinalità e integrità</li><li>Piani di query, problemi N+1 e indici</li><li>Lock, isolamento e aggiornamenti massivi</li></ul><a aria-label="Config TOML di database_reviewer" href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/database_reviewer.toml">Config TOML</a></div></article>
-            <article class="agent-card tier-mini"><img src="assets/agents/dependency_reviewer.png" alt="Avatar medievale del dependency_reviewer" /><div class="card-content"><div class="card-meta"><span>Dipendenze</span><span>read-only</span></div><h4>dependency_reviewer</h4><p>Controlla pacchetti, plugin, licenze, lockfile e rischi nella catena delle dipendenze.</p><dl><div><dt>Modello</dt><dd>gpt-5.4-mini</dd></div><div><dt>Ragionamento</dt><dd>high</dd></div></dl><ul><li>Avvisi di sicurezza e versioni vulnerabili</li><li>Lockfile riproducibili</li><li>Licenze, peso del bundle e manutenzione</li></ul><a aria-label="Config TOML di dependency_reviewer" href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/dependency_reviewer.toml">Config TOML</a></div></article>
-            <article class="agent-card tier-mini"><img src="assets/agents/accessibility_tester.png" alt="Avatar medievale dell'accessibility_tester" /><div class="card-content"><div class="card-meta"><span>Accessibilità</span><span>read-only</span></div><h4>accessibility_tester</h4><p>Controlla tastiera, semantica, etichette, focus e contrasto secondo le linee guida WCAG.</p><dl><div><dt>Modello</dt><dd>gpt-5.4-mini</dd></div><div><dt>Ragionamento</dt><dd>high</dd></div></dl><ul><li>Elementi HTML corretti prima di ARIA</li><li>Focus visibile e gerarchia dei titoli</li><li>Testi alternativi e annunci di stato</li></ul><a aria-label="Config TOML di accessibility_tester" href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/accessibility_tester.toml">Config TOML</a></div></article>
+            <article class="agent-card tier-frontier"><img src="assets/agents/reviewer.png" alt="Avatar medievale del reviewer" /><div class="card-content"><div class="card-meta"><span>Revisione</span><span>read-only</span></div><h4>reviewer</h4><p>Esamina il diff per trovare errori, regressioni, rischi di sicurezza e test mancanti.</p><dl><div><dt>Modello</dt><dd>gpt-5.6-sol</dd></div><div><dt>Ragionamento</dt><dd>medium</dd></div></dl><ul><li>Ordina i problemi per gravità</li><li>Collega ogni rilievo a file, comandi o comportamento</li><li>Propone la correzione più circoscritta</li></ul><a aria-label="Config TOML di reviewer" href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/reviewer.toml">Config TOML</a></div></article>
+            <article class="agent-card tier-frontier"><img src="assets/agents/typescript_reviewer.png" alt="Avatar medievale del typescript_reviewer" /><div class="card-content"><div class="card-meta"><span>Revisione</span><span>read-only</span></div><h4>typescript_reviewer</h4><p>Controlla codice TypeScript e JavaScript, tipi, operazioni asincrone e sicurezza in esecuzione.</p><dl><div><dt>Modello</dt><dd>gpt-5.6-terra</dd></div><div><dt>Ragionamento</dt><dd>medium</dd></div></dl><ul><li>Cast rischiosi, <code>any</code> e valori nulli</li><li>Promise non gestite, corse e cancellazione</li><li>Confini tra moduli, ambienti ed esecuzione</li></ul><a aria-label="Config TOML di typescript_reviewer" href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/typescript_reviewer.toml">Config TOML</a></div></article>
+            <article class="agent-card tier-frontier"><img src="assets/agents/react_reviewer.png" alt="Avatar medievale del react_reviewer" /><div class="card-content"><div class="card-meta"><span>Revisione</span><span>read-only</span></div><h4>react_reviewer</h4><p>Controlla componenti React, hook, rendering, accessibilità e confini tra server e client.</p><dl><div><dt>Modello</dt><dd>gpt-5.6-terra</dd></div><div><dt>Ragionamento</dt><dd>medium</dd></div></dl><ul><li>Hook condizionali e dipendenze errate</li><li>Modifiche dirette allo stato e chiavi instabili</li><li>Codice client eseguito per errore sul server</li></ul><a aria-label="Config TOML di react_reviewer" href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/react_reviewer.toml">Config TOML</a></div></article>
+            <article class="agent-card tier-frontier"><img src="assets/agents/security_auditor.png" alt="Avatar medievale del security_auditor" /><div class="card-content"><div class="card-meta"><span>Sicurezza</span><span>read-only</span></div><h4>security_auditor</h4><p>Controlla autenticazione, segreti, input, dipendenze e configurazione dell'infrastruttura.</p><dl><div><dt>Modello</dt><dd>gpt-5.6-sol</dd></div><div><dt>Ragionamento</dt><dd>high</dd></div></dl><ul><li>Confini di autenticazione e autorizzazione</li><li>Iniezioni e gestione dei segreti</li><li>Impostazioni insicure e catena delle dipendenze</li></ul><a aria-label="Config TOML di security_auditor" href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/security_auditor.toml">Config TOML</a></div></article>
+            <article class="agent-card tier-frontier"><img src="assets/agents/database_reviewer.png" alt="Avatar medievale del database_reviewer" /><div class="card-content"><div class="card-meta"><span>Database</span><span>read-only</span></div><h4>database_reviewer</h4><p>Controlla schema, SQL, migrazioni, indici, permessi a livello di riga e prestazioni.</p><dl><div><dt>Modello</dt><dd>gpt-5.6-sol</dd></div><div><dt>Ragionamento</dt><dd>high</dd></div></dl><ul><li>Vincoli, cardinalità e integrità</li><li>Piani di query, problemi N+1 e indici</li><li>Lock, isolamento e aggiornamenti massivi</li></ul><a aria-label="Config TOML di database_reviewer" href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/database_reviewer.toml">Config TOML</a></div></article>
+            <article class="agent-card tier-mini"><img src="assets/agents/dependency_reviewer.png" alt="Avatar medievale del dependency_reviewer" /><div class="card-content"><div class="card-meta"><span>Dipendenze</span><span>read-only</span></div><h4>dependency_reviewer</h4><p>Controlla pacchetti, plugin, licenze, lockfile e rischi nella catena delle dipendenze.</p><dl><div><dt>Modello</dt><dd>gpt-5.6-terra</dd></div><div><dt>Ragionamento</dt><dd>high</dd></div></dl><ul><li>Avvisi di sicurezza e versioni vulnerabili</li><li>Lockfile riproducibili</li><li>Licenze, peso del bundle e manutenzione</li></ul><a aria-label="Config TOML di dependency_reviewer" href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/dependency_reviewer.toml">Config TOML</a></div></article>
+            <article class="agent-card tier-mini"><img src="assets/agents/accessibility_tester.png" alt="Avatar medievale dell'accessibility_tester" /><div class="card-content"><div class="card-meta"><span>Accessibilità</span><span>read-only</span></div><h4>accessibility_tester</h4><p>Controlla tastiera, semantica, etichette, focus e contrasto secondo le linee guida WCAG.</p><dl><div><dt>Modello</dt><dd>gpt-5.6-terra</dd></div><div><dt>Ragionamento</dt><dd>high</dd></div></dl><ul><li>Elementi HTML corretti prima di ARIA</li><li>Focus visibile e gerarchia dei titoli</li><li>Testi alternativi e annunci di stato</li></ul><a aria-label="Config TOML di accessibility_tester" href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/accessibility_tester.toml">Config TOML</a></div></article>
           </div>
         </section>
 
         <section class="lane">
           <h3>Test, prove e diagnosi</h3>
           <div class="agent-grid">
-            <article class="agent-card tier-mini"><img src="assets/agents/test_automator.png" alt="Avatar medievale del test_automator" /><div class="card-content"><div class="card-meta"><span>Test</span><span>workspace-write</span></div><h4>test_automator</h4><p>Aggiunge test mirati per proteggere comportamenti, regressioni e flussi critici.</p><dl><div><dt>Modello</dt><dd>gpt-5.4-mini</dd></div><div><dt>Ragionamento</dt><dd>medium</dd></div></dl><ul><li>Scrive un test che fallisce senza la correzione</li><li>Usa dati di prova deterministici</li><li>Copre il caso riuscito e un caso limite</li></ul><a aria-label="Config TOML di test_automator" href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/test_automator.toml">Config TOML</a></div></article>
-            <article class="agent-card tier-mini"><img src="assets/agents/evidence_collector.png" alt="Avatar medievale dell'evidence_collector" /><div class="card-content"><div class="card-meta"><span>Prove</span><span>read-only</span></div><h4>evidence_collector</h4><p>Documenta il risultato con screenshot, log, comandi e riproduzioni dirette.</p><dl><div><dt>Modello</dt><dd>gpt-5.4-mini</dd></div><div><dt>Ragionamento</dt><dd>low</dd></div></dl><ul><li>Screenshot per le modifiche all'interfaccia</li><li>Output dei comandi per build, test ed esecuzione</li><li>Controlli mancanti dichiarati</li></ul><a aria-label="Config TOML di evidence_collector" href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/evidence_collector.toml">Config TOML</a></div></article>
-            <article class="agent-card tier-frontier"><img src="assets/agents/debugger.png" alt="Avatar medievale del debugger" /><div class="card-content"><div class="card-meta"><span>Diagnosi</span><span>read-only</span></div><h4>debugger</h4><p>Isola la causa di bug, errori, test falliti e problemi intermittenti.</p><dl><div><dt>Modello</dt><dd>gpt-5.5</dd></div><div><dt>Ragionamento</dt><dd>high</dd></div></dl><ul><li>Collega l'azione che scatena il problema al sintomo</li><li>Confronta ambiente e configurazione</li><li>Produce una riproduzione minima</li></ul><a aria-label="Config TOML di debugger" href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/debugger.toml">Config TOML</a></div></article>
-            <article class="agent-card tier-frontier"><img src="assets/agents/performance_optimizer.png" alt="Avatar medievale del performance_optimizer" /><div class="card-content"><div class="card-meta"><span>Prestazioni</span><span>read-only</span></div><h4>performance_optimizer</h4><p>Misura latenza, memoria, dimensione del codice e Core Web Vitals per trovare i colli di bottiglia.</p><dl><div><dt>Modello</dt><dd>gpt-5.5</dd></div><div><dt>Ragionamento</dt><dd>medium</dd></div></dl><ul><li>Percorsi critici, memoria e lavoro ripetuto</li><li>Bundle, caricamento del codice e rendering</li><li>LCP, INP, CLS e TBT</li></ul><a aria-label="Config TOML di performance_optimizer" href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/performance_optimizer.toml">Config TOML</a></div></article>
+            <article class="agent-card tier-mini"><img src="assets/agents/test_automator.png" alt="Avatar medievale del test_automator" /><div class="card-content"><div class="card-meta"><span>Test</span><span>workspace-write</span></div><h4>test_automator</h4><p>Aggiunge test mirati per proteggere comportamenti, regressioni e flussi critici.</p><dl><div><dt>Modello</dt><dd>gpt-5.6-luna</dd></div><div><dt>Ragionamento</dt><dd>medium</dd></div></dl><ul><li>Scrive un test che fallisce senza la correzione</li><li>Usa dati di prova deterministici</li><li>Copre il caso riuscito e un caso limite</li></ul><a aria-label="Config TOML di test_automator" href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/test_automator.toml">Config TOML</a></div></article>
+            <article class="agent-card tier-mini"><img src="assets/agents/evidence_collector.png" alt="Avatar medievale dell'evidence_collector" /><div class="card-content"><div class="card-meta"><span>Prove</span><span>read-only</span></div><h4>evidence_collector</h4><p>Documenta il risultato con screenshot, log, comandi e riproduzioni dirette.</p><dl><div><dt>Modello</dt><dd>gpt-5.6-luna</dd></div><div><dt>Ragionamento</dt><dd>low</dd></div></dl><ul><li>Screenshot per le modifiche all'interfaccia</li><li>Output dei comandi per build, test ed esecuzione</li><li>Controlli mancanti dichiarati</li></ul><a aria-label="Config TOML di evidence_collector" href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/evidence_collector.toml">Config TOML</a></div></article>
+            <article class="agent-card tier-frontier"><img src="assets/agents/debugger.png" alt="Avatar medievale del debugger" /><div class="card-content"><div class="card-meta"><span>Diagnosi</span><span>read-only</span></div><h4>debugger</h4><p>Isola la causa di bug, errori, test falliti e problemi intermittenti.</p><dl><div><dt>Modello</dt><dd>gpt-5.6-sol</dd></div><div><dt>Ragionamento</dt><dd>high</dd></div></dl><ul><li>Collega l'azione che scatena il problema al sintomo</li><li>Confronta ambiente e configurazione</li><li>Produce una riproduzione minima</li></ul><a aria-label="Config TOML di debugger" href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/debugger.toml">Config TOML</a></div></article>
+            <article class="agent-card tier-frontier"><img src="assets/agents/performance_optimizer.png" alt="Avatar medievale del performance_optimizer" /><div class="card-content"><div class="card-meta"><span>Prestazioni</span><span>read-only</span></div><h4>performance_optimizer</h4><p>Misura latenza, memoria, dimensione del codice e Core Web Vitals per trovare i colli di bottiglia.</p><dl><div><dt>Modello</dt><dd>gpt-5.6-terra</dd></div><div><dt>Ragionamento</dt><dd>medium</dd></div></dl><ul><li>Percorsi critici, memoria e lavoro ripetuto</li><li>Bundle, caricamento del codice e rendering</li><li>LCP, INP, CLS e TBT</li></ul><a aria-label="Config TOML di performance_optimizer" href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/performance_optimizer.toml">Config TOML</a></div></article>
           </div>
         </section>
 
         <section class="lane">
           <h3>Prodotto, ricerca e qualità AI</h3>
           <div class="agent-grid">
-            <article class="agent-card tier-mini"><img src="assets/agents/docs_researcher.png" alt="Avatar medievale del docs_researcher" /><div class="card-content"><div class="card-meta"><span>Ricerca</span><span>read-only</span></div><h4>docs_researcher</h4><p>Verifica API, framework, versioni e opzioni usando documentazione ufficiale.</p><dl><div><dt>Modello</dt><dd>gpt-5.4-mini</dd></div><div><dt>Ragionamento</dt><dd>medium</dd></div></dl><ul><li>Impostazioni predefinite, limiti e funzioni deprecate</li><li>Contratti API e modalità di errore</li><li>Fatti documentati separati dalle inferenze</li></ul><a aria-label="Config TOML di docs_researcher" href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/docs_researcher.toml">Config TOML</a></div></article>
-            <article class="agent-card tier-frontier"><img src="assets/agents/product_manager.png" alt="Avatar medievale del product_manager" /><div class="card-content"><div class="card-meta"><span>Prodotto</span><span>read-only</span></div><h4>product_manager</h4><p>Definisce problema, ambito, priorità, requisiti e criteri di successo.</p><dl><div><dt>Modello</dt><dd>gpt-5.5</dd></div><div><dt>Ragionamento</dt><dd>low</dd></div></dl><ul><li>Problema e pubblico</li><li>Priorità attuali, successive e future</li><li>Criteri verificabili</li></ul><a aria-label="Config TOML di product_manager" href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/product_manager.toml">Config TOML</a></div></article>
-            <article class="agent-card tier-mini"><img src="assets/agents/ux_researcher.png" alt="Avatar medievale dell'ux_researcher" /><div class="card-content"><div class="card-meta"><span>Ricerca UX</span><span>read-only</span></div><h4>ux_researcher</h4><p>Studia utenti, percorsi, ostacoli e rischi di usabilità.</p><dl><div><dt>Modello</dt><dd>gpt-5.4-mini</dd></div><div><dt>Ragionamento</dt><dd>medium</dd></div></dl><ul><li>Obiettivi degli utenti e contesto d'uso</li><li>Attriti, accessibilità e fiducia</li><li>Evidenze separate dalle preferenze</li></ul><a aria-label="Config TOML di ux_researcher" href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/ux_researcher.toml">Config TOML</a></div></article>
-            <article class="agent-card tier-frontier"><img src="assets/agents/eval_engineer.png" alt="Avatar medievale dell'eval_engineer" /><div class="card-content"><div class="card-meta"><span>Qualità AI</span><span>read-only</span></div><h4>eval_engineer</h4><p>Progetta valutazioni per prompt, ricerca, uso degli strumenti e workflow con agenti.</p><dl><div><dt>Modello</dt><dd>gpt-5.5</dd></div><div><dt>Ragionamento</dt><dd>medium</dd></div></dl><ul><li>Scenari ricavati da attività reali</li><li>Rubriche e soglie di superamento</li><li>Soglie per costi, latenza e regressioni</li></ul><a aria-label="Config TOML di eval_engineer" href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/eval_engineer.toml">Config TOML</a></div></article>
+            <article class="agent-card tier-mini"><img src="assets/agents/docs_researcher.png" alt="Avatar medievale del docs_researcher" /><div class="card-content"><div class="card-meta"><span>Ricerca</span><span>read-only</span></div><h4>docs_researcher</h4><p>Verifica API, framework, versioni e opzioni usando documentazione ufficiale.</p><dl><div><dt>Modello</dt><dd>gpt-5.6-terra</dd></div><div><dt>Ragionamento</dt><dd>medium</dd></div></dl><ul><li>Impostazioni predefinite, limiti e funzioni deprecate</li><li>Contratti API e modalità di errore</li><li>Fatti documentati separati dalle inferenze</li></ul><a aria-label="Config TOML di docs_researcher" href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/docs_researcher.toml">Config TOML</a></div></article>
+            <article class="agent-card tier-frontier"><img src="assets/agents/product_manager.png" alt="Avatar medievale del product_manager" /><div class="card-content"><div class="card-meta"><span>Prodotto</span><span>read-only</span></div><h4>product_manager</h4><p>Definisce problema, ambito, priorità, requisiti e criteri di successo.</p><dl><div><dt>Modello</dt><dd>gpt-5.6-terra</dd></div><div><dt>Ragionamento</dt><dd>low</dd></div></dl><ul><li>Problema e pubblico</li><li>Priorità attuali, successive e future</li><li>Criteri verificabili</li></ul><a aria-label="Config TOML di product_manager" href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/product_manager.toml">Config TOML</a></div></article>
+            <article class="agent-card tier-mini"><img src="assets/agents/ux_researcher.png" alt="Avatar medievale dell'ux_researcher" /><div class="card-content"><div class="card-meta"><span>Ricerca UX</span><span>read-only</span></div><h4>ux_researcher</h4><p>Studia utenti, percorsi, ostacoli e rischi di usabilità.</p><dl><div><dt>Modello</dt><dd>gpt-5.6-terra</dd></div><div><dt>Ragionamento</dt><dd>medium</dd></div></dl><ul><li>Obiettivi degli utenti e contesto d'uso</li><li>Attriti, accessibilità e fiducia</li><li>Evidenze separate dalle preferenze</li></ul><a aria-label="Config TOML di ux_researcher" href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/ux_researcher.toml">Config TOML</a></div></article>
+            <article class="agent-card tier-frontier"><img src="assets/agents/eval_engineer.png" alt="Avatar medievale dell'eval_engineer" /><div class="card-content"><div class="card-meta"><span>Qualità AI</span><span>read-only</span></div><h4>eval_engineer</h4><p>Progetta valutazioni per prompt, ricerca, uso degli strumenti e workflow con agenti.</p><dl><div><dt>Modello</dt><dd>gpt-5.6-terra</dd></div><div><dt>Ragionamento</dt><dd>medium</dd></div></dl><ul><li>Scenari ricavati da attività reali</li><li>Rubriche e soglie di superamento</li><li>Soglie per costi, latenza e regressioni</li></ul><a aria-label="Config TOML di eval_engineer" href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.codex/agents/eval_engineer.toml">Config TOML</a></div></article>
           </div>
         </section>
       </section>
@@ -353,6 +352,7 @@
           <a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/AGENTS.md"><span>Contratto</span>AGENTS.md</a>
           <a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/docs/agent-catalog.md"><span>Matrice</span>Agent Catalog</a>
           <a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/docs/agent-workflows.md"><span>Playbook</span>Agent Workflows</a>
+          <a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/docs/model-routing.md"><span>Modelli</span>GPT-5.6 Routing</a>
           <a href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/docs/source-curation.md"><span>Cura fonti</span>Source Curation</a>
           <a href="https://github.com/google-labs-code/stitch-skills"><span>Fonte design</span>Google Stitch Skills</a>
         </div>
@@ -360,16 +360,29 @@
     </main>
 
     <footer class="site-footer">
-      <a class="brand" href="#top">
-        <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 48 48">
-            <path d="M24 4 41 11v13c0 10-6.8 16.8-17 20C13.8 40.8 7 34 7 24V11L24 4Z" />
-            <path d="m19 17-6 7 6 7M29 17l6 7-6 7M26 15l-4 18" />
-          </svg>
-        </span>
-        <span class="brand-copy"><b>unaSquadra</b><i>Fortissimi</i></span>
-      </a>
-      <p>Pagina statica su GitHub Pages, senza dipendenze runtime.</p>
+      <div class="footer-main">
+        <div class="footer-identity">
+          <a class="brand" href="#top" aria-label="Torna all'inizio">
+            <span class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 48 48">
+                <path d="M24 4 41 11v13c0 10-6.8 16.8-17 20C13.8 40.8 7 34 7 24V11L24 4Z" />
+                <path d="m19 17-6 7 6 7M29 17l6 7-6 7M26 15l-4 18" />
+              </svg>
+            </span>
+            <span class="brand-copy"><b>unaSquadra</b><i>Fortissimi</i></span>
+          </a>
+          <p>Un kit operativo per costruire, verificare e spedire con più agenti.</p>
+        </div>
+        <div class="footer-actions" aria-label="Collegamenti finali">
+          <a href="https://github.com/marius93rm/unaSquadraFortissimi">Apri su GitHub <span aria-hidden="true">↗</span></a>
+          <a href="#top">Torna su <span aria-hidden="true">↑</span></a>
+        </div>
+      </div>
+      <div class="footer-meta">
+        <span>Statico · GitHub Pages</span>
+        <span aria-hidden="true">◆</span>
+        <span>HTML + CSS, nessun runtime</span>
+      </div>
     </footer>
   </body>
 </html>

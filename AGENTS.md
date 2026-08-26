@@ -63,6 +63,8 @@ Specialist analysis:
 
 Do not spawn subagents reflexively. Use them when they reduce risk, isolate work, or produce evidence that would otherwise pollute the main context. Keep prompts narrow and verify their claims against files, diffs, commands, logs, or screenshots.
 
+Model defaults follow the repo-local Sol/Terra/Luna routing in `docs/model-routing.md`. Preserve the checked-in model unless task evidence justifies an override; use the lowest reasoning effort that meets the verifier.
+
 ## Skills
 
 Repo-local skills live in `.agents/skills/`. Load them when their description matches the task.

@@ -560,10 +560,15 @@ h4 {
 }
 
 .agent-card > img {
-  width: 100%;
+  width: min(13rem, calc(100% - 2.2rem));
   aspect-ratio: 1;
+  margin: 1.25rem auto 0;
   object-fit: cover;
-  border-bottom: 1px solid var(--line);
+  object-position: center;
+  border-radius: var(--radius);
+  clip-path: inset(6.25% round var(--radius));
+  transform: scale(1.142857);
+  transform-origin: center;
 }
 
 .card-content {
@@ -661,16 +666,20 @@ dd {
 
 .skill-card {
   display: grid;
-  grid-template-columns: 11rem minmax(0, 1fr);
+  grid-template-columns: 10.5rem minmax(0, 1fr);
+  align-items: start;
   overflow: hidden;
 }
 
 .skill-card img {
-  width: 100%;
-  height: 100%;
-  min-height: 15rem;
+  width: 8.5rem;
+  height: 7.25rem;
+  min-height: 0;
+  margin: 1.1rem 0 1.1rem 1.1rem;
   object-fit: cover;
-  border-right: 1px solid var(--line);
+  object-position: center top;
+  border-radius: var(--radius);
+  clip-path: inset(1px round var(--radius));
 }
 
 .skill-card > div {
@@ -728,17 +737,84 @@ dd {
 }
 
 .site-footer {
-  justify-content: space-between;
-  gap: 1rem;
+  display: grid;
+  gap: 1.6rem;
   width: min(var(--max), calc(100% - 2rem));
   margin: 0 auto;
   border-top: 1px solid var(--line);
-  padding: 2rem 0 3rem;
+  padding: 2.8rem 0 3rem;
+}
+
+.footer-main {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.footer-identity {
+  max-width: 30rem;
+}
+
+.footer-identity .brand {
+  width: fit-content;
 }
 
 .site-footer p {
   margin: 0;
-  text-align: right;
+  color: var(--muted);
+  line-height: 1.58;
+}
+
+.footer-identity p {
+  margin-top: 1rem;
+  max-width: 28ch;
+}
+
+.footer-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.65rem;
+}
+
+.footer-actions a {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.72rem 0.95rem;
+  color: var(--paper-strong);
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.footer-actions a:hover {
+  border-color: var(--gold);
+  background: rgba(216, 168, 93, 0.1);
+}
+
+.footer-actions span {
+  margin-left: 0.25rem;
+  color: var(--gold);
+  font-size: 1rem;
+}
+
+.footer-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(224, 190, 126, 0.12);
+  color: rgba(189, 169, 139, 0.72);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.footer-meta span:nth-child(2) {
+  color: var(--gold);
+  font-size: 0.5rem;
 }
 
 @media (max-width: 1100px) {
@@ -760,11 +836,9 @@ dd {
   }
 
   .skill-card img {
-    height: auto;
-    min-height: 0;
-    aspect-ratio: 16 / 10;
-    border-right: 0;
-    border-bottom: 1px solid var(--line);
+    width: 10rem;
+    height: 8.5rem;
+    margin: 1.1rem auto 0;
   }
 }
 
@@ -852,11 +926,15 @@ dd {
 
   .site-footer {
     align-items: flex-start;
+  }
+
+  .footer-main {
+    align-items: flex-start;
     flex-direction: column;
   }
 
-  .site-footer p {
-    text-align: left;
+  .footer-actions {
+    justify-content: flex-start;
   }
 }
 

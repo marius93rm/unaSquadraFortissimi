@@ -9,6 +9,7 @@ This catalog explains when to use each repo-local Codex subagent and skill. Keep
 3. Use implementation agents only after the affected path is known.
 4. Use review agents after a diff exists, or before a risky design ships.
 5. Use Paseo for advisor, committee, handoff, or loop workflows, not as a replacement for repo-local verification.
+6. Preserve the default model in `docs/model-routing.md` unless task ambiguity, risk, volume, or verifier quality justifies an override.
 
 ## Codex Agents
 

@@ -26,6 +26,7 @@
 - [Start a New Project](#start-a-new-project)
 - [Validation](#validation)
 - [Codex Agents](#codex-agents)
+- [Model Routing](#model-routing)
 - [Local Skills](#local-skills)
 - [Paseo Workflows](#paseo-workflows)
 - [Source Philosophy](#source-philosophy)
@@ -66,6 +67,7 @@ The point is not to install every hook, command, provider, and research pipeline
 | `.agents/skills/` | 26 compact repo-local skills |
 | `docs/agent-workflows.md` | Practical Paseo playbook |
 | `docs/agent-catalog.md` | Agent and skill activation matrix |
+| `docs/model-routing.md` | Official-doc-backed GPT-5.6 Sol, Terra, and Luna defaults |
 | `docs/source-curation.md` | Rules for importing ideas without copying entire catalogs |
 | `index.html` | Static showcase page generated from the repo-local concept and catalog |
 | `styles.css` | Visual system for the static showcase |
@@ -95,6 +97,7 @@ The point is not to install every hook, command, provider, and research pipeline
 |-- docs/
 |   |-- agent-catalog.md
 |   |-- agent-workflows.md
+|   |-- model-routing.md
 |   `-- source-curation.md
 |-- .codex/
 |   |-- config.toml
@@ -171,6 +174,7 @@ python scripts/validate_repo.py
 The script checks:
 
 - every `.codex/agents/*.toml` has the required fields and a `name` matching its filename
+- every agent uses one of the approved GPT-5.6 Sol, Terra, or Luna model IDs
 - every `.agents/skills/*/SKILL.md` has frontmatter with a `name` matching its directory
 - `AGENTS.md`, `README.md`, and `docs/agent-catalog.md` mention the current agent and skill names
 - the showcase `index.html` mentions every agent and skill and has valid local anchors, local assets, GitHub blob links, and image alt text
@@ -192,6 +196,18 @@ Project-local Codex agents live in `.codex/agents/`.
 | Product and research | `docs_researcher`, `product_manager`, `ux_researcher`, `eval_engineer` |
 
 These agents are **project-local** and **explicitly invoked**. They are not meant to replace careful repo reading. See `docs/agent-catalog.md` for activation guidance.
+
+## Model Routing
+
+The 22 custom agents use current GPT-5.6 defaults derived from official OpenAI model and subagent guidance:
+
+| Model | Agents | Default workload |
+| --- | ---: | --- |
+| `gpt-5.6-sol` | 5 | Ambiguous, cross-cutting, or high-impact analysis |
+| `gpt-5.6-terra` | 14 | Everyday specialist work with reasoning and tools |
+| `gpt-5.6-luna` | 3 | Narrow, repeatable work with a concrete output contract |
+
+See [`docs/model-routing.md`](docs/model-routing.md) for the role matrix, escalation rules, verification date, and official sources.
 
 ## Local Skills
 

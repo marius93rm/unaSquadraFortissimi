@@ -104,3 +104,5 @@ Bad loop criteria:
 Codex subagents are useful for parallel investigation and review, but they increase token use and coordination overhead. Use narrow prompts, bounded scope, and read-only sandboxes for analysis roles.
 
 Use `docs/agent-catalog.md` as the activation matrix. If a role is not listed there, prefer the main agent unless the task clearly needs a temporary specialist.
+
+Use `docs/model-routing.md` for the checked-in Sol, Terra, and Luna defaults. Override a model only when the task's ambiguity, risk, volume, or output contract differs materially from the role's normal workload.

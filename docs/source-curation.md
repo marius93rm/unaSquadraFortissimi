@@ -14,6 +14,7 @@ This skeleton draws from multiple agent and skill repositories, but it intention
 ## Current Source Decisions
 
 - Codex official docs define the local shape: `AGENTS.md`, `.codex/config.toml`, `.codex/agents/*.toml`, and `.agents/skills/*/SKILL.md`.
+- Codex official model and subagent docs define the GPT-5.6 Sol/Terra/Luna routing recorded in `docs/model-routing.md`. Research verified 2026-08-26.
 - Paseo informs the orchestration playbook: advisor, committee, handoff, loop, workspaces, and repo-local skills. Research snapshot: `getpaseo/paseo` commit `62d9e656d749`.
 - awesome-codex-subagents informs the Codex TOML agent format and broad specialist coverage. Research snapshot: `VoltAgent/awesome-codex-subagents` commit `797d73698aa3`.
 - awesome-agent-skills informs the skill-catalog mindset and trigger-first packaging. Research snapshot: `VoltAgent/awesome-agent-skills` commit `0e6e58985eb7`.
