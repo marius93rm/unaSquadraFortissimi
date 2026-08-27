@@ -40,6 +40,13 @@ ALLOWED_REASONING = {"low", "medium", "high"}
 ALLOWED_SANDBOX = {"read-only", "workspace-write"}
 ALLOWED_MODELS = {"gpt-5.6-sol", "gpt-5.6-terra", "gpt-5.6-luna"}
 MODEL_DISPLAY_ORDER = ("gpt-5.6-sol", "gpt-5.6-terra", "gpt-5.6-luna")
+BROWSER_SKILL_MARKERS = {
+    'mcp__node_repl__js',
+    'scripts/browser-client.mjs',
+    'agent.browsers.get("iab")',
+    'browser.tabs.selected()',
+    'browser.tabs.new()',
+}
 
 
 @dataclass(frozen=True)
@@ -213,6 +220,12 @@ def check_skills(failures: list[CheckResult]) -> list[str]:
             fail(failures, path, f"name must match directory: expected {expected_name}, got {actual_name}")
         if not frontmatter.get("description"):
             fail(failures, path, "missing frontmatter description")
+
+        if actual_name == "browser-integration":
+            text = read_text(path)
+            missing_markers = sorted(marker for marker in BROWSER_SKILL_MARKERS if marker not in text)
+            if missing_markers:
+                fail(failures, path, f"missing browser integration markers: {', '.join(missing_markers)}")
 
     return sorted(skill_names)
 

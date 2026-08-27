@@ -43,6 +43,7 @@ This catalog explains when to use each repo-local Codex subagent and skill. Keep
 | Group | Skills | Purpose |
 | --- | --- | --- |
 | Discovery and planning | `repo-discovery`, `brainstorming`, `planning-contract`, `writing-plans` | Understand the repo, clarify intent, and produce executable plans |
+| Browser integration | `browser-integration` | Bootstrap the in-app browser through the supported direct runtime and recover without speculative fallbacks |
 | Orchestration | `subagent-driven-development`, `using-git-worktrees` | Use agents and isolated workspaces intentionally |
 | Build discipline | `tdd-workflow`, `systematic-debugging`, `verification-loop`, `branch-finish` | Keep implementation evidence-led and finish cleanly |
 | Review and risk | `code-review`, `security-review`, `dependency-review`, `performance-audit`, `accessibility-audit`, `evidence-qa` | Find defects and prove claims |
@@ -63,6 +64,7 @@ This catalog explains when to use each repo-local Codex subagent and skill. Keep
 | Product discovery | `product_manager`, `ux_researcher`, `docs_researcher` | `brainstorming`, `feature-request-triage`, `recent-research`, `prd-writing` |
 | AI agent workflow | `eval_engineer`, `docs_researcher`, `reviewer` | `eval-design`, `subagent-driven-development`, `evidence-qa` |
 | Performance issue | `performance_optimizer`, `database_reviewer`, `frontend_developer` as needed | `performance-audit`, `evidence-qa` |
+| Local UI or browser flow | `frontend_developer`, `evidence_collector` as needed | `browser-integration`, `accessibility-audit`, `verification-loop` |
 
 ## Source Lineage
 

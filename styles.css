@@ -690,6 +690,40 @@ dd {
   padding-left: 1.25rem;
 }
 
+.browser-skill-group > h3 {
+  color: var(--teal);
+}
+
+.featured-skill {
+  grid-column: 1 / -1;
+  grid-template-columns: 13rem minmax(0, 1fr);
+  border-color: rgba(126, 231, 214, 0.42);
+  background:
+    linear-gradient(115deg, rgba(79, 184, 170, 0.12), transparent 42%),
+    rgba(29, 23, 17, 0.94);
+  box-shadow: 0 22px 64px rgba(0, 0, 0, 0.24);
+}
+
+.featured-skill img {
+  width: 11rem;
+  height: 11rem;
+  object-position: center;
+}
+
+.skill-status {
+  display: inline-flex;
+  margin-bottom: 0.75rem;
+  padding: 0.35rem 0.55rem;
+  border: 1px solid rgba(126, 231, 214, 0.3);
+  border-radius: 999px;
+  color: var(--teal);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 .paseo {
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
@@ -839,6 +873,11 @@ dd {
     width: 10rem;
     height: 8.5rem;
     margin: 1.1rem auto 0;
+  }
+
+  .featured-skill img {
+    width: 11rem;
+    height: 11rem;
   }
 }
 

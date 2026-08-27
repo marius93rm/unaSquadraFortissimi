@@ -31,7 +31,7 @@ This skeleton draws from multiple agent and skill repositories, but it intention
 The repo now carries a curated middleweight profile:
 
 - 22 Codex subagents in `.codex/agents/`.
-- 26 repo-local skills in `.agents/skills/`.
+- 27 repo-local skills in `.agents/skills/`.
 - An activation matrix in `docs/agent-catalog.md`.
 - No upstream scripts, generated installers, global config, provider credentials, package manager dependencies, or telemetry.
 

@@ -25,6 +25,7 @@
 - [Repository Map](#repository-map)
 - [Start a New Project](#start-a-new-project)
 - [Validation](#validation)
+- [Reliable Browser Integration](#reliable-browser-integration)
 - [Codex Agents](#codex-agents)
 - [Model Routing](#model-routing)
 - [Local Skills](#local-skills)
@@ -64,7 +65,7 @@ The point is not to install every hook, command, provider, and research pipeline
 | `AGENTS.md` | Main operating contract for agents working in this repository |
 | `.codex/config.toml` | Project-local Codex subagent limits |
 | `.codex/agents/` | 22 Codex subagents across implementation, review, product, ops, QA, and evals |
-| `.agents/skills/` | 26 compact repo-local skills |
+| `.agents/skills/` | 27 compact repo-local skills |
 | `docs/agent-workflows.md` | Practical Paseo playbook |
 | `docs/agent-catalog.md` | Agent and skill activation matrix |
 | `docs/model-routing.md` | Official-doc-backed GPT-5.6 Sol, Terra, and Luna defaults |
@@ -128,6 +129,7 @@ The point is not to install every hook, command, provider, and research pipeline
     `-- skills/
         |-- accessibility-audit/
         |-- brainstorming/
+        |-- browser-integration/
         |-- branch-finish/
         |-- code-review/
         |-- dependency-review/
@@ -181,7 +183,21 @@ The script checks:
 - the README map and count phrases have not drifted from the current repo shape
 - `.gitignore` preserves the repository's minimum hygiene patterns
 
-Current integrity target: 22 Codex subagents, 26 repo-local skills, 22 agenti Codex e 26 skill repo-local.
+Current integrity target: 22 Codex subagents, 27 repo-local skills, 22 agenti Codex e 27 skill repo-local.
+
+## Reliable Browser Integration
+
+Load [`browser-integration`](.agents/skills/browser-integration/SKILL.md) before every task that opens, inspects, tests, clicks, types in, or screenshots a page through the Codex in-app browser.
+
+The skill removes the common false starts:
+
+- it resolves the installed browser client from the active skill catalog instead of hard-coding a versioned path
+- it discovers and calls `mcp__node_repl__js` directly, never through a generic execution wrapper that can lose sandbox metadata
+- it uses one idempotent bootstrap for the `iab` browser and recovers a missing selected tab by creating one
+- it keeps persistent runtime bindings stable and grounds every action in a fresh DOM snapshot
+- it retries only recoverable state once, then reports a precise host blocker instead of switching browser stacks speculatively
+
+The repository validator also protects the critical bootstrap markers so future edits cannot silently remove the supported client, runtime tool, `iab` selection, or tab lifecycle.
 
 ## Codex Agents
 
@@ -216,6 +232,7 @@ Repo-local skills live in `.agents/skills/`.
 | Skill | Use |
 | --- | --- |
 | `repo-discovery` | First pass through an unfamiliar repo |
+| `browser-integration` | Reliable preflight and bounded recovery for the Codex in-app browser |
 | `brainstorming` | Clarify substantial product, UX, creative, or architecture work |
 | `planning-contract` | Decision-complete plans for risky or multi-step work |
 | `writing-plans` | Implementation plans with sequencing, affected files, and verification |

@@ -72,6 +72,7 @@ Repo-local skills live in `.agents/skills/`. Load them when their description ma
 Execution discipline:
 
 - `repo-discovery`
+- `browser-integration`
 - `brainstorming`
 - `planning-contract`
 - `writing-plans`
@@ -108,6 +109,8 @@ Frontend systems:
 - `design-taste-frontend`
 
 Keep skills concise. Add a new skill only for repeated work that benefits from a stable workflow and a clear trigger.
+
+Load `browser-integration` before any in-app browser task. It defines the direct runtime preflight and bounded recovery path that prevents speculative browser fallbacks.
 
 ## Paseo
 

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Un template repo-local per lavorare con Codex e Paseo: 22 agenti, 26 skill e regole operative verificabili."
+      content="Un template repo-local per lavorare con Codex e Paseo: 22 agenti, 27 skill e regole operative verificabili."
     />
     <title>unaSquadraFortissimi | Template per Codex e Paseo</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
@@ -47,7 +47,7 @@
           <p class="kicker"><span>Template repo-local</span> Codex e Paseo, dentro il repository</p>
           <h1><span>unaSquadra</span><span>Fortissimi</span></h1>
           <p class="hero-lede">
-            Una base da copiare nei tuoi progetti. Dentro trovi 22 agenti Codex, 26 skill e regole
+            Una base da copiare nei tuoi progetti. Dentro trovi 22 agenti Codex, 27 skill e regole
             chiare per assegnare il lavoro, controllare i risultati e chiudere le attività.
           </p>
           <div class="hero-actions">
@@ -56,7 +56,7 @@
           </div>
           <div class="hero-spec" role="list" aria-label="Specifiche del progetto">
             <span role="listitem"><b>22</b> agenti specializzati</span>
-            <span role="listitem"><b>26</b> procedure operative</span>
+            <span role="listitem"><b>27</b> procedure operative</span>
             <span role="listitem"><b>0</b> dipendenze runtime</span>
           </div>
         </div>
@@ -87,7 +87,7 @@
             <span>agenti Codex locali</span>
           </article>
           <article>
-            <strong>26</strong>
+            <strong>27</strong>
             <span>skill repo-local</span>
           </article>
           <article>
@@ -95,7 +95,7 @@
             <span>gruppi di agenti</span>
           </article>
           <article>
-            <strong>8</strong>
+            <strong>9</strong>
             <span>gruppi di skill</span>
           </article>
         </div>
@@ -270,7 +270,7 @@
       <section class="section skills-section" id="skill">
         <div class="section-heading">
           <p class="kicker"><span>Skill repo-local</span> Istruzioni per attività ricorrenti</p>
-          <h2>26 procedure, raggruppate per uso</h2>
+          <h2>27 procedure, raggruppate per uso</h2>
           <p>
             Ogni skill guida un passaggio concreto del lavoro. I file <code>SKILL.md</code> definiscono
             quando usarla, quali controlli eseguire e quale risultato produrre.
@@ -278,6 +278,10 @@
         </div>
 
         <div class="skill-groups">
+          <section class="skill-group browser-skill-group"><h3>Browser e interazione web</h3><div class="skill-grid">
+            <article class="skill-card featured-skill"><img src="assets/skills/browser-integration.png" alt="Agente medievale davanti a uno specchio di navigazione per browser-integration" /><div><span class="skill-status">Nuova · percorso diretto</span><h4>browser-integration</h4><p>Collega gli agenti al browser integrato con un percorso diretto, stabile e senza tentativi alla cieca.</p><ol><li>Risolve client e tool senza path versionati</li><li>Avvia <code>iab</code> con un bootstrap idempotente</li><li>Recupera solo gli errori realmente recuperabili</li></ol><a aria-label="SKILL.md di browser-integration" href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.agents/skills/browser-integration/SKILL.md">SKILL.md</a></div></article>
+          </div></section>
+
           <section class="skill-group"><h3>Esplorazione e pianificazione</h3><div class="skill-grid">
             <article class="skill-card"><img src="assets/skills/repo-discovery.png" alt="Scena medievale per repo-discovery" /><div><h4>repo-discovery</h4><p>Mappa un repository nuovo prima di modificarlo.</p><ol><li>Ispeziona la radice e i file di configurazione</li><li>Leggi AGENTS, README e documenti</li><li>Separa fatti, ipotesi e punti aperti</li></ol><a aria-label="SKILL.md di repo-discovery" href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.agents/skills/repo-discovery/SKILL.md">SKILL.md</a></div></article>
             <article class="skill-card"><img src="assets/skills/brainstorming.png" alt="Scena medievale per brainstorming" /><div><h4>brainstorming</h4><p>Chiarisce la direzione di un lavoro creativo, di prodotto, architettura o UX.</p><ol><li>Riformula obiettivo e vincoli</li><li>Confronta due o tre approcci</li><li>Definisce criteri di accettazione</li></ol><a aria-label="SKILL.md di brainstorming" href="https://github.com/marius93rm/unaSquadraFortissimi/blob/main/.agents/skills/brainstorming/SKILL.md">SKILL.md</a></div></article>
