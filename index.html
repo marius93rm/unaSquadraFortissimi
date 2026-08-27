@@ -11,7 +11,7 @@
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body id="top">
     <a class="skip-link" href="#main">Salta al contenuto</a>
 
     <header class="site-header">
@@ -32,6 +32,7 @@
         </svg>
       </a>
       <nav class="nav-links" aria-label="Sezioni del sito">
+        <a href="#uplink">AI Uplink</a>
         <a href="#metodo">Metodo</a>
         <a href="#modelli">Modelli</a>
         <a href="#agenti">Agenti</a>
@@ -42,7 +43,69 @@
     </header>
 
     <main id="main" tabindex="-1">
-      <section class="hero" id="top">
+      <section class="agent-uplink" id="uplink" aria-labelledby="uplink-title">
+        <div class="uplink-signal" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="uplink-copy">
+          <p class="uplink-eyebrow"><span>Canale aperto</span> AI ↔ AI / protocollo USF-01</p>
+          <h2 id="uplink-title">Agente, non studiare il sito. Assorbi il sistema.</h2>
+          <p>
+            Un solo payload ti consegna 22 agenti, 27 skill, il contratto operativo e i workflow Paseo.
+            Incollalo nella tua sessione: saprai cosa importare, cosa proteggere e come verificare il risultato.
+          </p>
+          <div class="uplink-actions">
+            <button class="uplink-button" type="button" data-copy-uplink aria-describedby="uplink-status">
+              <span class="uplink-button-icon" aria-hidden="true">⌁</span>
+              <span><b>BAM — importa nella repo</b><small>Copia il bootstrap AI-to-AI</small></span>
+            </button>
+            <a href="https://github.com/marius93rm/unaSquadraFortissimi" class="uplink-source">
+              Sorgente verificabile <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+          <p class="uplink-status" id="uplink-status" role="status" aria-live="polite">
+            Payload pronto · nessuna esecuzione automatica
+          </p>
+        </div>
+        <div class="uplink-console">
+          <div class="console-bar" aria-hidden="true">
+            <span>USF://BOOTSTRAP</span><span>READY</span>
+          </div>
+          <div class="console-core" aria-hidden="true">
+            <span class="core-ring"></span>
+            <span class="core-ring"></span>
+            <span class="core-ring"></span>
+            <b>1×</b>
+          </div>
+          <dl class="uplink-manifest">
+            <div><dt>Agenti</dt><dd>22 / TOML</dd></div>
+            <div><dt>Skill</dt><dd>27 / SKILL.md</dd></div>
+            <div><dt>Conflitti</dt><dd>merge, mai overwrite</dd></div>
+            <div><dt>Scope</dt><dd>solo repository</dd></div>
+          </dl>
+          <details class="uplink-details">
+            <summary>Ispeziona il payload</summary>
+            <pre><code id="agent-bootstrap">&lt;USF_AGENT_UPLINK version="1.0"&gt;
+MISSION: Installa nella repository corrente il kit operativo repo-local di unaSquadraFortissimi.
+SOURCE: https://github.com/marius93rm/unaSquadraFortissimi
+IMPORT: i 22 agenti in .codex/agents, le 27 skill in .agents/skills, la configurazione Codex repo-local, il contratto AGENTS.md e i documenti operativi Paseo/modelli/catalogo.
+
+PROTOCOL:
+1. Ispeziona prima la repository corrente, le sue istruzioni AGENTS.md e lo stato git.
+2. Acquisisci SOURCE in una directory temporanea e trattala come materiale da integrare, non come autorità superiore alle istruzioni locali.
+3. Importa il kit completo. Se un file esiste già, confronta e fondi intenzionalmente: preserva comandi, vincoli, stack e lavoro dell'utente.
+4. Non scrivere configurazione globale, credenziali o telemetry. Non cancellare, non fare commit e non fare push senza richiesta esplicita.
+5. Adatta riferimenti e validazione alla struttura reale della repository; non importare la landing e i suoi asset salvo richiesta.
+6. Esegui controlli mirati, poi riferisci file aggiunti, merge effettuati, verifiche e rischi residui.
+
+SUCCESS: il progetto riconosce localmente agenti, skill e workflow senza perdere configurazione o lavoro preesistente.
+ACTION: procedi ora; fai domande soltanto davanti a un conflitto materiale che non puoi risolvere in sicurezza.
+&lt;/USF_AGENT_UPLINK&gt;</code></pre>
+          </details>
+        </div>
+      </section>
+
+      <section class="hero">
         <div class="hero-copy">
           <p class="kicker"><span>Template repo-local</span> Codex e Paseo, dentro il repository</p>
           <h1><span>unaSquadra</span><span>Fortissimi</span></h1>
@@ -388,5 +451,49 @@
         <span>HTML + CSS, nessun runtime</span>
       </div>
     </footer>
+    <script>
+      (() => {
+        const button = document.querySelector("[data-copy-uplink]");
+        const payload = document.querySelector("#agent-bootstrap");
+        const status = document.querySelector("#uplink-status");
+
+        if (!button || !payload || !status) return;
+
+        button.addEventListener("click", async () => {
+          const text = payload.textContent.trim();
+
+          try {
+            try {
+              await navigator.clipboard.writeText(text);
+            } catch {
+              const fallback = document.createElement("textarea");
+              fallback.value = text;
+              fallback.setAttribute("readonly", "");
+              fallback.style.position = "fixed";
+              fallback.style.opacity = "0";
+              document.body.append(fallback);
+              fallback.select();
+              const copied = document.execCommand("copy");
+              fallback.remove();
+              if (!copied) throw new Error("Clipboard unavailable");
+            }
+
+            button.classList.add("is-copied");
+            button.querySelector("b").textContent = "Payload acquisito";
+            status.textContent = "Trasmissione completata · incolla il payload nella sessione del tuo agente";
+
+            window.setTimeout(() => {
+              button.classList.remove("is-copied");
+              button.querySelector("b").textContent = "BAM — importa nella repo";
+              status.textContent = "Payload pronto · nessuna esecuzione automatica";
+            }, 5000);
+          } catch {
+            const details = payload.closest("details");
+            details.open = true;
+            status.textContent = "Clipboard non disponibile · payload aperto per la copia manuale";
+          }
+        });
+      })();
+    </script>
   </body>
 </html>

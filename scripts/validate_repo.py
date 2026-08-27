@@ -47,6 +47,14 @@ BROWSER_SKILL_MARKERS = {
     'browser.tabs.selected()',
     'browser.tabs.new()',
 }
+AGENT_UPLINK_MARKERS = {
+    'id="uplink"',
+    'data-copy-uplink',
+    'id="agent-bootstrap"',
+    'USF_AGENT_UPLINK',
+    'merge, mai overwrite',
+    'nessuna esecuzione automatica',
+}
 
 
 @dataclass(frozen=True)
@@ -316,6 +324,10 @@ def check_html(failures: list[CheckResult], agent_names: list[str], skill_names:
     html_text = read_text(html_path)
     assert_text_mentions_all(failures, html_path, agent_names, "agent")
     assert_text_mentions_all(failures, html_path, skill_names, "skill")
+
+    missing_uplink_markers = sorted(marker for marker in AGENT_UPLINK_MARKERS if marker not in html_text)
+    if missing_uplink_markers:
+        fail(failures, html_path, f"agent uplink is incomplete: {', '.join(missing_uplink_markers)}")
 
     model_counts = {model: 0 for model in MODEL_DISPLAY_ORDER}
     for agent_path in find_agent_files():
