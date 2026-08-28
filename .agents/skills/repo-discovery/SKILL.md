@@ -10,7 +10,7 @@ Use this skill before non-trivial changes in an unfamiliar or newly initialized 
 ## Workflow
 
 1. Inspect the root: `rg --files -uu`, `git status --short --branch`, and relevant manifests.
-2. Read `AGENTS.md`, `README.md`, and task-relevant docs before source files.
+2. Read `AGENTS.md`, then use the README table of contents or targeted search to load only task-relevant README and documentation sections before source files.
 3. Identify likely entry points, tests, build commands, config, and ownership boundaries.
 4. Record confirmed facts, assumptions, and unknowns separately.
 5. Stop once you have enough context to make the next decision.

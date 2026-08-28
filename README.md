@@ -178,7 +178,10 @@ The script checks:
 - every `.codex/agents/*.toml` has the required fields and a `name` matching its filename
 - every agent uses one of the approved GPT-5.6 Sol, Terra, or Luna model IDs
 - every `.agents/skills/*/SKILL.md` has frontmatter with a `name` matching its directory
-- `AGENTS.md`, `README.md`, and `docs/agent-catalog.md` mention the current agent and skill names
+- `README.md`, `docs/agent-catalog.md`, `docs/model-routing.md`, and the landing page preserve their canonical agent and skill coverage
+- `AGENTS.md` stays within its 3,200-byte always-loaded budget and links to the canonical catalogs instead of duplicating them
+- initial skill name, description, and repo-relative path metadata stays within 6,500 characters
+- the normal `browser-integration` path stays within 4,000 bytes and links its conditional recovery reference
 - the showcase `index.html` mentions every agent and skill and has valid local anchors, local assets, GitHub blob links, and image alt text
 - the README map and count phrases have not drifted from the current repo shape
 - `.gitignore` preserves the repository's minimum hygiene patterns
@@ -198,6 +201,7 @@ The skill removes the common false starts:
 - it retries only recoverable state once, then reports a precise host blocker instead of switching browser stacks speculatively
 
 The repository validator also protects the critical bootstrap markers so future edits cannot silently remove the supported client, runtime tool, `iab` selection, or tab lifecycle.
+Detailed cases live in the [browser recovery reference](.agents/skills/browser-integration/references/recovery.md) and are loaded only after a matching failure, keeping the normal path compact.
 
 ## Codex Agents
 

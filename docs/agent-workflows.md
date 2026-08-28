@@ -99,6 +99,23 @@ Bad loop criteria:
 - "finish everything"
 - subjective quality without a verifier
 
+## Token-Efficient Context
+
+Treat context as a finite working set, not as storage. Codex loads `AGENTS.md` into every project session, while skills disclose their full instructions only after selection. Keep stable operating rules short, leave catalogs and detailed procedures in referenced files, and retrieve those details only when the task needs them.
+
+For day-to-day work:
+
+1. Map with filenames and targeted search before reading content.
+2. Read relevant sections instead of whole catalogs, long README files, logs, or generated artifacts.
+3. Filter and bound tool output at the command or query; retain a path or reproduction command for deeper follow-up.
+4. Keep stable instruction prefixes unchanged and append task-specific context later. This also improves prompt-cache reuse in API workflows.
+5. Use subagents to isolate noisy exploration or test output only when their distilled result saves more context than coordination costs.
+6. Compact long-running work around decisions, changed files, evidence, and open risks rather than preserving a transcript dump.
+
+The repository validator protects budgets for the always-loaded contract, initial skill metadata, and the normal browser path. It intentionally does not set `tool_output_token_limit`: targeted queries preserve evidence more reliably than opaque history truncation.
+
+Research verified 2026-08-28: [Codex project instructions](https://learn.chatgpt.com/docs/agent-configuration/agents-md), [skill progressive disclosure](https://learn.chatgpt.com/docs/build-skills), [subagent context isolation](https://learn.chatgpt.com/docs/agent-configuration/subagents), [OpenAI prompt caching](https://developers.openai.com/api/docs/guides/prompt-caching), and [Chroma context-rot research](https://www.trychroma.com/research/context-rot).
+
 ## Subagent Discipline
 
 Codex subagents are useful for parallel investigation and review, but they increase token use and coordination overhead. Use narrow prompts, bounded scope, and read-only sandboxes for analysis roles.

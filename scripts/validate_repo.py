@@ -11,6 +11,9 @@ high-signal drift between the canonical files:
 - docs/agent-catalog.md
 - index.html
 - .gitignore
+
+It also keeps always-loaded instructions and skill discovery metadata within
+repo-defined context budgets.
 """
 
 from __future__ import annotations
@@ -40,6 +43,9 @@ ALLOWED_REASONING = {"low", "medium", "high"}
 ALLOWED_SANDBOX = {"read-only", "workspace-write"}
 ALLOWED_MODELS = {"gpt-5.6-sol", "gpt-5.6-terra", "gpt-5.6-luna"}
 MODEL_DISPLAY_ORDER = ("gpt-5.6-sol", "gpt-5.6-terra", "gpt-5.6-luna")
+AGENTS_MD_BUDGET_BYTES = 3_200
+SKILL_CATALOG_BUDGET_CHARS = 6_500
+BROWSER_SKILL_BUDGET_BYTES = 4_000
 BROWSER_SKILL_MARKERS = {
     'mcp__node_repl__js',
     'scripts/browser-client.mjs',
@@ -234,6 +240,16 @@ def check_skills(failures: list[CheckResult]) -> list[str]:
             missing_markers = sorted(marker for marker in BROWSER_SKILL_MARKERS if marker not in text)
             if missing_markers:
                 fail(failures, path, f"missing browser integration markers: {', '.join(missing_markers)}")
+            size = len(text.encode("utf-8"))
+            if size > BROWSER_SKILL_BUDGET_BYTES:
+                fail(
+                    failures,
+                    path,
+                    f"browser skill exceeds normal-path budget: {size} > {BROWSER_SKILL_BUDGET_BYTES} bytes",
+                )
+            recovery_path = path.parent / "references" / "recovery.md"
+            if "references/recovery.md" not in text or not recovery_path.exists():
+                fail(failures, path, "browser recovery reference is missing or not linked")
 
     return sorted(skill_names)
 
@@ -249,7 +265,6 @@ def check_docs(failures: list[CheckResult], agent_names: list[str], skill_names:
             fail(failures, path, "required documentation file is missing")
             return
 
-    assert_text_mentions_all(failures, agents_md, agent_names, "agent")
     assert_text_mentions_all(failures, catalog, agent_names, "agent")
     assert_text_mentions_all(failures, readme, agent_names, "agent")
     assert_text_mentions_all(failures, model_routing, agent_names, "agent")
@@ -267,9 +282,37 @@ def check_docs(failures: list[CheckResult], agent_names: list[str], skill_names:
         if not re.search(row_pattern, model_routing_text):
             fail(failures, model_routing, f"agent routing does not match TOML: {name} -> {model}")
 
-    assert_text_mentions_all(failures, agents_md, skill_names, "skill")
     assert_text_mentions_all(failures, catalog, skill_names, "skill")
     assert_text_mentions_all(failures, readme, skill_names, "skill")
+
+    agents_size = len(read_text(agents_md).encode("utf-8"))
+    if agents_size > AGENTS_MD_BUDGET_BYTES:
+        fail(
+            failures,
+            agents_md,
+            f"always-loaded instructions exceed context budget: {agents_size} > {AGENTS_MD_BUDGET_BYTES} bytes",
+        )
+
+    agents_text = read_text(agents_md)
+    for required_reference in ["docs/agent-catalog.md", "docs/model-routing.md"]:
+        if required_reference not in agents_text:
+            fail(failures, agents_md, f"missing canonical catalog reference: {required_reference}")
+
+    skill_catalog_chars = 0
+    for skill_path in find_skill_files():
+        frontmatter = parse_skill_frontmatter(read_text(skill_path))
+        skill_catalog_chars += len(rel(skill_path))
+        skill_catalog_chars += len(frontmatter.get("name", ""))
+        skill_catalog_chars += len(frontmatter.get("description", ""))
+    if skill_catalog_chars > SKILL_CATALOG_BUDGET_CHARS:
+        fail(
+            failures,
+            ".agents/skills",
+            (
+                "initial skill catalog metadata exceeds context budget: "
+                f"{skill_catalog_chars} > {SKILL_CATALOG_BUDGET_CHARS} characters"
+            ),
+        )
 
     readme_text = read_text(readme)
     expected_map_entries = [
@@ -417,7 +460,7 @@ def main() -> int:
         print("Repo validation passed.")
         print(f"- agents: {len(find_agent_files())}")
         print(f"- skills: {len(find_skill_files())}")
-        print("- docs, landing catalog, links, local assets, anchors, counts, and .gitignore checked")
+        print("- docs, context budgets, landing catalog, links, local assets, anchors, counts, and .gitignore checked")
 
     return 0
 
