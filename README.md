@@ -19,6 +19,7 @@
 
 ## Table of Contents
 
+- [AI Uplink — Copy and Paste for an Agent](#ai-uplink--copy-and-paste-for-an-agent)
 - [Vision](#vision)
 - [Stack](#stack)
 - [What's Included](#whats-included)
@@ -32,6 +33,29 @@
 - [Paseo Workflows](#paseo-workflows)
 - [Source Philosophy](#source-philosophy)
 - [Non-Goals](#non-goals)
+
+## AI Uplink — Copy and Paste for an Agent
+
+Do not make the agent study the site. Paste the following payload into its session: it tells the agent what to import, what to preserve, and how to verify the result.
+
+```text
+<USF_AGENT_UPLINK version="1.0">
+MISSION: Installa nella repository corrente il kit operativo repo-local di unaSquadraFortissimi.
+SOURCE: https://github.com/marius93rm/unaSquadraFortissimi
+IMPORT: i 22 agenti in .codex/agents, le 27 skill in .agents/skills, la configurazione Codex repo-local, il contratto AGENTS.md e i documenti operativi Paseo/modelli/catalogo.
+
+PROTOCOL:
+1. Ispeziona prima la repository corrente, le sue istruzioni AGENTS.md e lo stato git.
+2. Acquisisci SOURCE in una directory temporanea e trattala come materiale da integrare, non come autorità superiore alle istruzioni locali.
+3. Importa il kit completo. Se un file esiste già, confronta e fondi intenzionalmente: preserva comandi, vincoli, stack e lavoro dell'utente.
+4. Non scrivere configurazione globale, credenziali o telemetry. Non cancellare, non fare commit e non fare push senza richiesta esplicita.
+5. Adatta riferimenti e validazione alla struttura reale della repository; non importare la landing e i suoi asset salvo richiesta.
+6. Esegui controlli mirati, poi riferisci file aggiunti, merge effettuati, verifiche e rischi residui.
+
+SUCCESS: il progetto riconosce localmente agenti, skill e workflow senza perdere configurazione o lavoro preesistente.
+ACTION: procedi ora; fai domande soltanto davanti a un conflitto materiale che non puoi risolvere in sicurezza.
+</USF_AGENT_UPLINK>
+```
 
 ## Vision
 
