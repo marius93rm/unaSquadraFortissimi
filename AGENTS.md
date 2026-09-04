@@ -38,7 +38,7 @@ Agent selection lives in `docs/agent-catalog.md`; model defaults and escalation 
 
 Repo-local skills live in `.agents/skills/`. Load a skill when its description matches the task, and read conditional references only when their stated trigger applies. Add a skill only for repeated, stable work with a clear boundary.
 
-Load `browser-integration` before any in-app browser task. Use Paseo only for an advisor, committee, handoff, or bounded loop whose benefit is explicit; see `docs/agent-workflows.md`.
+Load `browser-integration` before any browser-driven task. It selects exactly one session lane: explicit `@Chrome` or `@Browser`, otherwise Paseo when its native tools are exposed. Never treat those host-specific lanes as automatic fallbacks. Other Paseo use remains limited to an advisor, committee, handoff, or bounded loop whose benefit is explicit; see `docs/agent-workflows.md`.
 
 ## Quality Bar
 

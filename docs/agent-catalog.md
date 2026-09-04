@@ -43,7 +43,7 @@ This catalog explains when to use each repo-local Codex subagent and skill. Keep
 | Group | Skills | Purpose |
 | --- | --- | --- |
 | Discovery and planning | `repo-discovery`, `brainstorming`, `planning-contract`, `writing-plans` | Understand the repo, clarify intent, and produce executable plans |
-| Browser integration | `browser-integration` | Bootstrap the in-app browser through the supported direct runtime and recover without speculative fallbacks |
+| Browser integration | `browser-integration` | Use Paseo by default; isolate explicit `@Chrome` and `@Browser` sessions without cross-host fallback |
 | Orchestration | `subagent-driven-development`, `using-git-worktrees` | Use agents and isolated workspaces intentionally |
 | Build discipline | `tdd-workflow`, `systematic-debugging`, `verification-loop`, `branch-finish` | Keep implementation evidence-led and finish cleanly |
 | Review and risk | `code-review`, `security-review`, `dependency-review`, `performance-audit`, `accessibility-audit`, `evidence-qa` | Find defects and prove claims |

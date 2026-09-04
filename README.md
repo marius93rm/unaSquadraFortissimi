@@ -214,17 +214,17 @@ Current integrity target: 22 Codex subagents, 27 repo-local skills, 22 agenti Co
 
 ## Reliable Browser Integration
 
-Load [`browser-integration`](.agents/skills/browser-integration/SKILL.md) before every task that opens, inspects, tests, clicks, types in, or screenshots a page through the Codex in-app browser.
+Load [`browser-integration`](.agents/skills/browser-integration/SKILL.md) before every task that opens, inspects, tests, clicks, types in, or screenshots a page.
 
-The skill removes the common false starts:
+The skill makes the session boundary explicit:
 
-- it resolves the installed browser client from the active skill catalog instead of hard-coding a versioned path
-- it discovers and calls `mcp__node_repl__js` directly, never through a generic execution wrapper that can lose sandbox metadata
-- it uses one idempotent bootstrap for the `iab` browser and recovers a missing selected tab by creating one
-- it keeps persistent runtime bindings stable and grounds every action in a fresh DOM snapshot
-- it retries only recoverable state once, then reports a precise host blocker instead of switching browser stacks speculatively
+- it uses Paseo's native browser by default when no browser was explicitly selected
+- it reserves Chrome for a new compatible session selected with `@Chrome`, and the Codex browser for `@Browser`
+- it accepts Chrome only when the current chat advertises the official extension client; an installed or open browser is not enough
+- it never switches browser hosts silently, retries recoverable state once inside the selected lane, and reports one precise recovery action
+- it grounds every action in the latest snapshot
 
-The repository validator also protects the critical bootstrap markers so future edits cannot silently remove the supported client, runtime tool, `iab` selection, or tab lifecycle.
+The repository validator protects lane isolation, the Paseo fast path, explicit Chrome discovery, the Codex bootstrap, and tab lifecycle so future edits cannot silently restore a cross-host fallback.
 Detailed cases live in the [browser recovery reference](.agents/skills/browser-integration/references/recovery.md) and are loaded only after a matching failure, keeping the normal path compact.
 
 ## Codex Agents
@@ -260,7 +260,7 @@ Repo-local skills live in `.agents/skills/`.
 | Skill | Use |
 | --- | --- |
 | `repo-discovery` | First pass through an unfamiliar repo |
-| `browser-integration` | Reliable preflight and bounded recovery for the Codex in-app browser |
+| `browser-integration` | Paseo-default routing with isolated explicit `@Chrome` and `@Browser` sessions |
 | `brainstorming` | Clarify substantial product, UX, creative, or architecture work |
 | `planning-contract` | Decision-complete plans for risky or multi-step work |
 | `writing-plans` | Implementation plans with sequencing, affected files, and verification |

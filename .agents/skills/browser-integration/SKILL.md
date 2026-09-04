@@ -1,65 +1,62 @@
 ---
 name: browser-integration
-description: Use before any in-app browser task. Establishes the supported runtime, direct tool invocation, tab lifecycle, and bounded recovery; not for HTTP-only research.
+description: Use before browser-driven work to select the current session's lane: Paseo by default, explicit Chrome, or explicit Codex Browser; not for HTTP-only research.
 ---
 
 # Browser Integration
 
-Use this skill before browser-driven work to reach a usable in-app browser session and keep every action grounded in current page state.
+The browsers belong to different host/session contexts. Do not switch browser lanes automatically or imply an in-session fallback.
 
-## Source of Truth
+## Backend Selection
 
-1. Find the installed skill named `browser` whose description covers the Codex in-app browser, then read its complete `SKILL.md`. Its API and constraints override this quick path.
-2. Resolve the plugin root from that catalog entry. It must contain both `skills/browser/SKILL.md` and `scripts/browser-client.mjs`.
-3. Use the resolved absolute client path; never hard-code a plugin version or user directory.
+Choose exactly one lane for the task:
 
-If the installed skill or client is missing, stop with one precise blocker. Do not guess another package.
+1. **Google Chrome — explicit.** Use only for `@Chrome`, a mentioned Chrome tab, or an explicit need for its real profile. It requires OpenAI's official extension and a Chrome client advertised to this chat.
+2. **Codex built-in browser — explicit.** Select this lane only for `@Browser` or an explicit request for the Codex browser.
+3. **Paseo native browser — default.** Without an explicit choice, use concrete `mcp__paseo__browser_*` tools when exposed. Do not load the Codex browser runtime in this lane.
 
-## Direct Preflight
+If the lane is unavailable, report its missing prerequisite and required session. Do not silently substitute another browser.
 
-Use `mcp__node_repl__js` directly. If hidden, discover it with these queries in order: `node_repl js`, `mcp__node_repl__js`, `js`, `node_repl js JavaScript execution`. `js_reset` is not the execution tool.
+Do not use standalone browser stacks unless explicitly requested.
 
-Never invoke the JavaScript tool through `functions.exec`, shell, or another wrapper; those paths can lose sandbox metadata. If the active turn exposes no concrete sandbox policy, or direct discovery fails, stop without trying Computer Use, Playwright, CDP, or shell browser libraries.
+## Paseo Fast Path
 
-## Retry-Safe Bootstrap
+1. Call `mcp__paseo__browser_list_tabs`; reuse the intended tab. If none exists, create one with `mcp__paseo__browser_new_tab`; this is expected state.
+2. Navigate only when needed, then call `mcp__paseo__browser_snapshot`.
+3. Build actions only from refs in the latest snapshot. Refs expire after page changes.
+4. Serialize calls per tab. After an action, check one authoritative state; use screenshots for visual evidence.
 
-Run one guarded first cell with the resolved client path and a short task name:
+If no Paseo browser host is connected, read [references/recovery.md](references/recovery.md), retry Paseo once, then stop this lane with a precise recovery action.
+
+## Codex Built-in or Chrome Path
+
+Read the installed Codex desktop `browser` skill completely. Resolve the plugin root containing `skills/browser/SKILL.md` and `scripts/browser-client.mjs`; never hard-code its version or user path.
+
+This lane requires a concrete sandbox policy. If permissions are disabled/full-access, do not bootstrap it: request a new Default Permissions chat with `@Chrome` or `@Browser`, matching the selected lane. Otherwise call `mcp__node_repl__js` once through the host's supported surface:
 
 ```js
 if (!globalThis.agent) {
   const { setupBrowserRuntime } = await import("<absolute-plugin-root>/scripts/browser-client.mjs");
   await setupBrowserRuntime({ globals: globalThis });
 }
-if (!globalThis.browser) {
-  globalThis.browser = await agent.browsers.get("iab");
-}
+globalThis.availableBrowsers = await agent.browsers.list();
+globalThis.chromeInfo = availableBrowsers.find(info => info.type === "extension" && /chrome/i.test(`${info.name} ${JSON.stringify(info.metadata || {})}`));
+// @Chrome, only if chromeInfo exists:
+// if (!globalThis.browser) globalThis.browser = await agent.browsers.get(chromeInfo.id);
+// @Browser instead:
+// if (!globalThis.browser) globalThis.browser = await agent.browsers.get("iab");
 await browser.nameSession("🔎 short task name");
-if (typeof tab === "undefined") {
-  globalThis.tab = await browser.tabs.selected();
-}
-if (!globalThis.tab) {
-  globalThis.tab = await browser.tabs.new();
-}
+if (typeof tab === "undefined") globalThis.tab = await browser.tabs.selected();
+if (!globalThis.tab) globalThis.tab = await browser.tabs.new();
 console.log({ browserId: browser.browserId, tabId: tab.id, url: await tab.url() });
 ```
 
-Proceed only when the result identifies the `iab` browser and a tab. Reuse `agent`, `browser`, and `tab`; do not redeclare or reset them merely to fix a naming collision. Keep browser work in the background unless the user asks to see it.
+For Chrome, require `chromeInfo`; installed or open Chrome is not proof of connection. If absent, follow recovery and keep the lane failed; never substitute `iab` while claiming Chrome.
 
-## Interaction Contract
+Reuse `agent`, `browser`, and `tab`. After navigation or UI changes, take a fresh `tab.playwright.domSnapshot()`. Prefer test IDs, stable attributes or `href`, then scoped roles/text; call `count()` when uniqueness is unclear.
 
-1. Navigate only when the tab is not already at the target URL.
-2. Take a fresh `tab.playwright.domSnapshot()` after navigation or meaningful UI change.
-3. Build locators from that snapshot: prefer test IDs, stable attributes or `href`, then scoped roles or text.
-4. When uniqueness is unclear, call `count()` and act only on exactly one match.
-5. After each action, inspect the cheapest authoritative state change.
-6. Use screenshots for visual claims and DOM snapshots for semantic or locator claims; do not collect both by default.
-
-For local apps, start the server separately, confirm the URL responds, reload when needed, and inspect relevant `tab.dev.logs(...)` before reporting success.
-
-## Conditional Recovery
-
-If preflight, tab state, a locator, sandbox metadata, or the connection fails, read [references/recovery.md](references/recovery.md) and follow only the matching recovery case. Retry recoverable state once; stop on repeated host integration errors.
+On a missing `sandboxPolicy`, connection failure, unavailable Chrome client, or stale state, follow only the matching case in [references/recovery.md](references/recovery.md). Retry recoverable state once inside the selected lane.
 
 ## Completion Evidence
 
-Report the target tested, decisive state observed, and checks that could not run. For UI implementation, capture the key final screenshot when the environment returns an image artifact.
+Report the lane, target, decisive state, retry, and one recovery action for failures. Include the key screenshot for UI work when available.
