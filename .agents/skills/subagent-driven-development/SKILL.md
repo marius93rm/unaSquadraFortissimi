@@ -27,6 +27,7 @@ Use subagents deliberately when they reduce risk or isolate context.
 ## Model Routing
 
 - Keep Sol for ambiguous, cross-cutting, or high-impact work.
+- Select Astra for specialist tasks that need sustained reasoning across the hardest workflows with multiple steps and tools.
 - Use Terra for bounded specialist reasoning, exploration, scans, and supporting synthesis.
 - Use Luna only when scope, inputs, and the expected output are explicit and repeatable.
 - Start with the configured reasoning effort; increase it only when complexity or failed verification warrants it.

@@ -92,7 +92,7 @@ The point is not to install every hook, command, provider, and research pipeline
 | `.agents/skills/` | 27 compact repo-local skills |
 | `docs/agent-workflows.md` | Practical Paseo playbook |
 | `docs/agent-catalog.md` | Agent and skill activation matrix |
-| `docs/model-routing.md` | Official-doc-backed GPT-5.6 Sol, Terra, and Luna defaults |
+| `docs/model-routing.md` | Official-doc-backed GPT-6 Astra and GPT-5.6 Sol/Terra/Luna defaults |
 | `docs/source-curation.md` | Rules for importing ideas without copying entire catalogs |
 | `index.html` | Static showcase page generated from the repo-local concept and catalog |
 | `styles.css` | Visual system for the static showcase |
@@ -200,7 +200,7 @@ python scripts/validate_repo.py
 The script checks:
 
 - every `.codex/agents/*.toml` has the required fields and a `name` matching its filename
-- every agent uses one of the approved GPT-5.6 Sol, Terra, or Luna model IDs
+- every custom agent uses one of the approved GPT-5.6 Sol, Terra, or Luna model IDs
 - every `.agents/skills/*/SKILL.md` has frontmatter with a `name` matching its directory
 - `README.md`, `docs/agent-catalog.md`, `docs/model-routing.md`, and the landing page preserve their canonical agent and skill coverage
 - `AGENTS.md` stays within its 3,200-byte always-loaded budget and links to the canonical catalogs instead of duplicating them
@@ -243,7 +243,7 @@ These agents are **project-local** and **explicitly invoked**. They are not mean
 
 ## Model Routing
 
-The 22 custom agents use current GPT-5.6 defaults derived from official OpenAI model and subagent guidance:
+The main Codex agent defaults to `gpt-6-astra` with `low` reasoning in `.codex/config.toml`. The 22 custom agents keep Sol/Terra/Luna defaults. This is a project routing choice informed by OpenAI guidance; Astra can be selected for a specialist task when its complexity warrants it:
 
 | Model | Agents | Default workload |
 | --- | ---: | --- |

@@ -122,4 +122,4 @@ Codex subagents are useful for parallel investigation and review, but they incre
 
 Use `docs/agent-catalog.md` as the activation matrix. If a role is not listed there, prefer the main agent unless the task clearly needs a temporary specialist.
 
-Use `docs/model-routing.md` for the checked-in Sol, Terra, and Luna defaults. Override a model only when the task's ambiguity, risk, volume, or output contract differs materially from the role's normal workload.
+Use `docs/model-routing.md` for the Astra main-agent default and checked-in Sol, Terra, and Luna specialist defaults. Override a model only when the task's ambiguity, risk, volume, or output contract differs materially from the role's normal workload.
